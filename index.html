@@ -12,6 +12,9 @@
             background-color: #1e1e1e;
             color: #ffffff;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         h1, h2 {
@@ -52,17 +55,17 @@
         }
 
         footer {
-            margin-top: 30px;
+            margin-top: auto; /* Zapewnia, że stopka będzie na dole */
             font-size: 0.9em;
         }
 
         .founders {
-            margin: 20px auto;
-            max-width: 400px; /* Zmniejszono szerokość */
-            padding: 10px; /* Zmniejszono padding */
+            margin: 10px auto;
+            max-width: 300px; /* Zmniejszenie szerokości */
+            padding: 5px; /* Zmniejszenie paddingu */
             background-color: #2a2a2a;
             border-radius: 10px;
-            font-size: 0.9em; /* Zmniejszono rozmiar tekstu */
+            font-size: 0.8em; /* Zmniejszenie rozmiaru tekstu */
         }
 
         ul {
@@ -71,8 +74,8 @@
         }
 
         ul li {
-            margin: 5px 0; /* Zmniejszono odstępy między liniami */
-            font-size: 1em;
+            margin: 3px 0; /* Zmniejszenie odstępów między liniami */
+            font-size: 0.9em; /* Zmniejszenie rozmiaru czcionki */
         }
 
         /* Mobile view */
@@ -85,21 +88,16 @@
             p {
                 padding: 0 15px;
             }
+
+            .founders {
+                max-width: 250px; /* Jeszcze mniejsze na telefonach */
+            }
         }
     </style>
 </head>
 <body>
     <h1>Kelefotrak's Basement</h1>
     <p>This is the website for Kelefotrak’s Basement. Kelefotrak’s Basement is a small community we started on Discord. Discord is a popular platform for communications, be it voice, video, or text. We at Kelefotrak’s Basement take pride in our ability to free speech. We embrace diversity and fairness and welcome everyone without bias. We are very open to new people, and we are sure if you drop in, you’ll love it and will most likely stay.</p>
-    
-    <!-- Founders Section -->
-    <div class="founders">
-        <h2>Founders</h2>
-        <ul>
-            <li>Kelefotrak</li>
-            <li>Grass (Victoria)</li>
-        </ul>
-    </div>
     
     <div class="button-container">
         <a href="https://discord.gg/xX3BAJcYCD" target="_blank" class="button">Join Us on Discord</a>
@@ -108,6 +106,13 @@
     </div>
     
     <footer>
+        <div class="founders">
+            <h2>Founders</h2>
+            <ul>
+                <li>Kelefotrak</li>
+                <li>Grass (Victoria)</li>
+            </ul>
+        </div>
         © 2025 Kelefotrak's Basement. All rights reserved.
     </footer>
 </body>
