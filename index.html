@@ -1,112 +1,210 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-image: url('banner.png'); 
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat; 
-    background-attachment: fixed; 
-    color: #ffffff;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    font-size: 18px; /* Zwiększenie domyślnego rozmiaru tekstu */
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelefotrak's Basement</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('banner.png'); /* Dodaj obrazek jako tło */
+            background-size: cover; /* Dopasowanie obrazu do całej strony */
+            background-position: center; /* Wyśrodkowanie obrazu */
+            background-repeat: no-repeat; /* Brak powtarzania obrazu */
+            background-attachment: fixed; /* Utrzymanie tła podczas przewijania */
+            color: #ffffff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-size: 18px; /* Zwiększenie domyślnego rozmiaru tekstu */
+        }
 
-h1 {
-    margin-top: 20px;
-    font-size: 3em; /* Zwiększenie rozmiaru nagłówka głównego */
-}
+        h1 {
+            margin-top: 20px;
+            font-size: 3em; /* Zwiększenie rozmiaru nagłówka głównego */
+        }
 
-h2 {
-    margin-top: 20px;
-    font-size: 2.5em; /* Zwiększenie rozmiaru nagłówków sekcji */
-}
+        h2 {
+            margin-top: 20px;
+            font-size: 2.5em; /* Zwiększenie rozmiaru nagłówków sekcji */
+        }
 
-p, ul {
-    max-width: 600px;
-    margin: 20px auto;
-    line-height: 1.8; /* Zwiększenie odstępu między liniami */
-    background-color: rgba(0, 0, 0, 0.5); 
-    padding: 15px; /* Zwiększenie paddingu dla lepszej czytelności */
-    border-radius: 10px;
-    font-size: 1.1em; /* Zwiększenie rozmiaru tekstu w paragrafach */
-}
+        p, ul {
+            max-width: 600px;
+            margin: 20px auto;
+            line-height: 1.8; /* Zwiększenie odstępu między liniami */
+            background-color: rgba(0, 0, 0, 0.5); /* Półprzezroczyste tło dla lepszej czytelności */
+            padding: 15px; /* Zwiększenie paddingu dla lepszej czytelności */
+            border-radius: 10px;
+            font-size: 1.1em; /* Zwiększenie rozmiaru tekstu w paragrafach */
+        }
 
-ul {
-    list-style: none;
-    padding: 0;
-}
+        ul {
+            list-style: none;
+            padding: 0;
+        }
 
-li {
-    margin: 10px 0;
-    font-size: 1.1em; /* Zwiększenie rozmiaru tekstu w liście */
-}
+        li {
+            margin: 10px 0;
+            font-size: 1.1em; /* Zwiększenie rozmiaru tekstu w liście */
+        }
 
-.button-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-}
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
 
-a {
-    text-decoration: none;
-}
+        a {
+            text-decoration: none;
+        }
 
-.button {
-    padding: 12px 25px; /* Zwiększenie rozmiaru przycisków */
-    background-color: rgba(51, 51, 51, 0.8); 
-    color: #fff;
-    border: 2px solid #555;
-    border-radius: 5px;
-    transition: 0.3s ease;
-    text-align: center;
-    font-size: 1.2em; /* Zwiększenie rozmiaru tekstu w przyciskach */
-}
+        .button {
+            padding: 12px 25px; /* Zwiększenie rozmiaru przycisków */
+            background-color: rgba(51, 51, 51, 0.8); /* Półprzezroczysty przycisk */
+            color: #fff;
+            border: 2px solid #555;
+            border-radius: 5px;
+            transition: 0.3s ease;
+            text-align: center;
+            font-size: 1.2em; /* Zwiększenie rozmiaru tekstu w przyciskach */
+        }
 
-.button:hover {
-    background-color: rgba(85, 85, 85, 0.8);
-    color: #fff;
-}
+        .button:hover {
+            background-color: rgba(85, 85, 85, 0.8);
+            color: #fff;
+        }
 
-footer {
-    margin-top: auto;
-    font-size: 1em; /* Zwiększenie rozmiaru tekstu w stopce */
-    color: #ccc;
-    background-color: rgba(0, 0, 0, 0.5); 
-    padding: 20px;
-    text-align: center;
-}
+        footer {
+            margin-top: auto;
+            font-size: 1em; /* Zwiększenie rozmiaru tekstu w stopce */
+            color: #ccc;
+            background-color: rgba(0, 0, 0, 0.5); /* Półprzezroczyste tło dla stopki */
+            padding: 20px;
+            text-align: center; /* Wyśrodkowanie stopki */
+        }
 
-.founders-text {
-    margin-top: 10px;
-    font-size: 1.2em; /* Zwiększenie rozmiaru tekstu w sekcji founders */
-}
+        .founders-text {
+            margin-top: 10px;
+            font-size: 1.2em; /* Zwiększenie rozmiaru tekstu w sekcji founders */
+        }
 
-.navbar a {
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 15px;
-    transition: 0.3s ease;
-    font-size: 1.1em; /* Zwiększenie rozmiaru tekstu w nawigacji */
-}
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            z-index: 1000;
+        }
 
-@media (max-width: 768px) {
-    .button {
-        width: 80%;
-        box-sizing: border-box;
-    }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: 0.3s ease;
+            font-size: 1.1em; /* Zwiększenie rozmiaru tekstu w nawigacji */
+        }
 
-    p {
-        padding: 0 15px;
-    }
+        .navbar a:hover {
+            background-color: rgba(85, 85, 85, 0.8);
+            border-radius: 5px;
+        }
 
-    .navbar a {
-        padding: 8px 12px;
-        font-size: 1em; /* Zwiększenie rozmiaru tekstu w nawigacji na urządzeniach mobilnych */
-    }
-}
+        section {
+            padding: 80px 20px;
+            display: none; /* Ukrycie sekcji domyślnie */
+        }
+
+        section.active {
+            display: block; /* Aktywna sekcja widoczna */
+        }
+
+        /* Mobile view */
+        @media (max-width: 768px) {
+            .button {
+                width: 80%;
+                box-sizing: border-box;
+            }
+
+            p {
+                padding: 0 15px;
+            }
+
+            .navbar a {
+                padding: 8px 12px;
+                font-size: 1em; /* Zwiększenie rozmiaru tekstu w nawigacji na urządzeniach mobilnych */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Pasek nawigacyjny -->
+    <nav class="navbar">
+        <a href="#home" onclick="showSection('home')">Home</a>
+        <a href="#highlights" onclick="showSection('highlights')">Highlights</a>
+        <a href="#rules" onclick="showSection('rules')">Rules</a>
+    </nav>
+
+    <!-- Sekcja główna -->
+    <section id="home" class="active">
+        <h1>Kelefotrak's Basement</h1>
+        <p>This is the website for Kelefotrak’s Basement. Kelefotrak’s Basement is a small community we started on Discord. Discord is a popular platform for communications, be it voice, video, or text. We at Kelefotrak’s Basement take pride in our ability to free speech. We embrace diversity and fairness and welcome everyone without bias. We are very open to new people, and we are sure if you drop in, you’ll love it and will most likely stay.</p>
+        
+        <div class="button-container">
+            <a href="https://discord.gg/xX3BAJcYCD" target="_blank" class="button">Join Us on Discord</a>
+            <a href="https://youtube.com/@kelesbasementsupport?si=-KS7T2saOWKYMCf5" target="_blank" class="button">YouTube Channel</a>
+            <a href="https://x.com/Kelepotrak" target="_blank" class="button">Follow on Twitter</a>
+        </div>
+    </section>
+
+    <!-- Sekcja Highlights -->
+    <section id="highlights">
+        <h2>Highlights</h2>
+        <p></p> <!-- Pusta sekcja -->
+    </section>
+
+    <!-- Sekcja Rules -->
+    <section id="rules">
+        <h2>Rules</h2>
+        <ul>
+            <li>🚫 Don't be an asshole.</li>
+            <li>📵 Don't spam.</li>
+            <li>🗣️ Try to keep it English only. (Polish and German are exceptions).</li>
+            <li>📜 Follow Discord ToS and community guidelines.</li>
+            <li>❌ This server isn't NSFW, we have 2 channels for NSFW purposes so use them.</li>
+            <li>⚠️ Any positive comments about Simon Cowell or Griffith will result in a warning.</li>
+            <li>💖 Be kind.</li>
+            <li>🔇 Any self-promotion not agreed with any @Owner will result in a warning and a mute.</li>
+        </ul>
+    </section>
+
+    <!-- Centralized footer content -->
+    <footer>
+        <div class="founders-text">
+            Founders: Kelefotrak and Grass (Victoria)
+        </div>
+        <div class="footer-text">
+            © 2025 Kelefotrak's Basement. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Funkcja do przełączania sekcji
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => section.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
