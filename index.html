@@ -1,111 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kelefotrak's Basement</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-image: url('banner.png'); /* Dodaj obrazek jako tło */
-            background-size: cover; /* Dopasowanie obrazu do całej strony */
-            background-position: center; /* Wyśrodkowanie obrazu */
-            background-repeat: no-repeat; /* Brak powtarzania obrazu */
-            background-attachment: fixed; /* Utrzymanie tła podczas przewijania */
-            color: #ffffff;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+<!-- Sekcja główna -->
+<section id="home" class="active">
+    <h1>Kelefotrak's Basement</h1>
+    <p>This is the website for Kelefotrak’s Basement. Kelefotrak’s Basement is a small community we started on Discord. Discord is a popular platform for communications, be it voice, video, or text. We at Kelefotrak’s Basement take pride in our ability to free speech. We embrace diversity and fairness and welcome everyone without bias. We are very open to new people, and we are sure if you drop in, you’ll love it and will most likely stay.</p>
+    
+    <div class="button-container">
+        <a href="https://discord.gg/xX3BAJcYCD" target="_blank" class="button">Join Us on Discord</a>
+        <a href="https://youtube.com/@kelesbasementsupport?si=-KS7T2saOWKYMCf5" target="_blank" class="button">YouTube Channel</a>
+        <a href="https://x.com/Kelepotrak" target="_blank" class="button">Follow on Twitter</a>
+    </div>
+</section>
 
-        nav {
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 10px;
-            position: sticky;
-            top: 0;
-        }
+<!-- Sekcja Highlights -->
+<section id="highlights">
+    <h2>Highlights</h2>
+    <p></p> <!-- Pusta sekcja -->
+</section>
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 1.2rem;
-            transition: color 0.3s;
-        }
+<!-- Sekcja Rules -->
+<section id="rules">
+    <h2>Rules</h2>
+    <ul>
+        <li>🚫 Don't be an asshole.</li>
+        <li>📵 Don't spam.</li>
+        <li>🗣️ Try to keep it English only. (Polish and German are exceptions).</li>
+        <li>📜 Follow Discord ToS and community guidelines.</li>
+        <li>❌ This server isn't NSFW, we have 2 channels for NSFW purposes so use them.</li>
+        <li>⚠️ Any positive comments about Simon Cowell or Griffith will result in a warning.</li>
+        <li>💖 Be kind.</li>
+        <li>🔇 Any self-promotion not agreed with any @Owner will result in a warning and a mute.</li>
+    </ul>
+</section>
 
-        nav a:hover {
-            color: #ff0000;
-        }
+<!-- Centralized footer content -->
+<footer>
+    <div class="founders-text">
+        Founders: Kelefotrak and Grass (Victoria)
+    </div>
+    <div class="footer-text">
+        © 2025 Kelefotrak's Basement. All rights reserved.
+    </div>
+</footer>
 
-        section {
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 800px;
-            background-color: rgba(0, 0, 0, 0.5); /* Półprzezroczyste tło */
-            border-radius: 10px;
-        }
+<!-- Mały napis w prawym dolnym rogu -->
+<div class="small-text">
+    Grass is a Loona SIMP
+</div>
 
-        footer {
-            margin-top: auto;
-            font-size: 0.9em;
-            color: #ccc;
-            background-color: rgba(0, 0, 0, 0.5); /* Półprzezroczyste tło dla stopki */
-            padding: 10px;
-        }
-
-        .footer-text {
-            margin-top: 10px;
-        }
-
-        .founders-text {
-            margin-top: 10px;
-            font-size: 1.1em;
-        }
-
-        /* Mobile view */
-        @media (max-width: 768px) {
-            nav a {
-                display: block;
-                margin: 5px 0;
-            }
-        }
-    </style>
-</head>
-<body>
-    <nav>
-        <a href="#rules">Rules</a>
-        <a href="#highlights">Highlights</a>
-    </nav>
-
-    <section id="rules">
-        <h2>Rules</h2>
-        <p>
-            Don't be an asshole.<br>
-            Don't spam.<br>
-            Try to keep it English only. (Polish and German are exceptions).<br>
-            Follow Discord ToS and community guidelines.<br>
-            This server isn't NSFW, we have 2 channels for NSFW purposes so use them.<br>
-            Any positive comments about Simon Cowell or Griffith will result in a warning.<br>
-            Be kind.<br>
-            Any self-promotion not agreed with any @Owner will result in a warning and a mute.
-        </p>
-    </section>
-
-    <section id="highlights">
-        <h2>Highlights</h2>
-        <p>This section is currently empty. Updates coming soon!</p>
-    </section>
-
-    <footer>
-        <div class="founders-text">
-            Founders: Kelefotrak and Grass (Victoria)
-        </div>
-        <div class="footer-text">
-            © 2025 Kelefotrak's Basement. All rights reserved.
-        </div>
-    </footer>
-</body>
-</html>
+<script>
+    // Funkcja do przełączania sekcji
+    function showSection(sectionId) {
+        const sections = document.querySelectorAll('section');
+        sections.forEach(section => section.classList.remove('active'));
+        document.getElementById(sectionId).classList.add('active');
+    }
+</script>
+</body> </html> ```
