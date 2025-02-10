@@ -19,27 +19,19 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            font-size: 18px; /* Zwiększenie domyślnego rozmiaru tekstu */
         }
 
-        h1 {
+        h1, h2 {
             margin-top: 20px;
-            font-size: 3em; /* Zwiększenie rozmiaru nagłówka głównego */
-        }
-
-        h2 {
-            margin-top: 20px;
-            font-size: 2.5em; /* Zwiększenie rozmiaru nagłówków sekcji */
         }
 
         p, ul {
             max-width: 600px;
             margin: 20px auto;
-            line-height: 1.8; /* Zwiększenie odstępu między liniami */
+            line-height: 1.6;
             background-color: rgba(0, 0, 0, 0.5); /* Półprzezroczyste tło dla lepszej czytelności */
-            padding: 15px; /* Zwiększenie paddingu dla lepszej czytelności */
+            padding: 10px;
             border-radius: 10px;
-            font-size: 1.1em; /* Zwiększenie rozmiaru tekstu w paragrafach */
         }
 
         ul {
@@ -49,7 +41,6 @@
 
         li {
             margin: 10px 0;
-            font-size: 1.1em; /* Zwiększenie rozmiaru tekstu w liście */
         }
 
         .button-container {
@@ -65,14 +56,13 @@
         }
 
         .button {
-            padding: 12px 25px; /* Zwiększenie rozmiaru przycisków */
+            padding: 10px 20px;
             background-color: rgba(51, 51, 51, 0.8); /* Półprzezroczysty przycisk */
             color: #fff;
             border: 2px solid #555;
             border-radius: 5px;
             transition: 0.3s ease;
             text-align: center;
-            font-size: 1.2em; /* Zwiększenie rozmiaru tekstu w przyciskach */
         }
 
         .button:hover {
@@ -82,7 +72,7 @@
 
         footer {
             margin-top: auto;
-            font-size: 1em; /* Zwiększenie rozmiaru tekstu w stopce */
+            font-size: 0.9em;
             color: #ccc;
             background-color: rgba(0, 0, 0, 0.5); /* Półprzezroczyste tło dla stopki */
             padding: 20px;
@@ -91,7 +81,7 @@
 
         .founders-text {
             margin-top: 10px;
-            font-size: 1.2em; /* Zwiększenie rozmiaru tekstu w sekcji founders */
+            font-size: 1.1em;
         }
 
         .navbar {
@@ -104,7 +94,6 @@
             display: flex;
             justify-content: center;
             gap: 20px;
-            align-items: center; /* Wyśrodkowanie elementów w poziomie */
             z-index: 1000;
         }
 
@@ -113,18 +102,11 @@
             text-decoration: none;
             padding: 10px 15px;
             transition: 0.3s ease;
-            font-size: 1.1em; /* Zwiększenie rozmiaru tekstu w nawigacji */
         }
 
         .navbar a:hover {
             background-color: rgba(85, 85, 85, 0.8);
             border-radius: 5px;
-        }
-
-        .navbar img {
-            width: 40px; /* Szerokość loga */
-            height: auto;
-            margin-right: 10px; /* Odstęp między logiem a tekstem */
         }
 
         section {
@@ -149,11 +131,6 @@
 
             .navbar a {
                 padding: 8px 12px;
-                font-size: 1em; /* Zwiększenie rozmiaru tekstu w nawigacji na urządzeniach mobilnych */
-            }
-
-            .navbar img {
-                width: 30px; /* Zmniejszenie loga na urządzeniach mobilnych */
             }
         }
     </style>
@@ -161,15 +138,9 @@
 <body>
     <!-- Pasek nawigacyjny -->
     <nav class="navbar">
-        <a href="#home" onclick="showSection('home')">
-            <img src="logo1.png" alt="Logo 1"> Home
-        </a>
-        <a href="#highlights" onclick="showSection('highlights')">
-            <img src="logo2.png" alt="Logo 2"> Highlights
-        </a>
-        <a href="#rules" onclick="showSection('rules')">
-            <img src="logo3.png" alt="Logo 3"> Rules
-        </a>
+        <a href="#home" onclick="showSection('home')">Home</a>
+        <a href="#highlights" onclick="showSection('highlights')">Highlights</a>
+        <a href="#rules" onclick="showSection('rules')">Rules</a>
     </nav>
 
     <!-- Sekcja główna -->
@@ -179,8 +150,11 @@
         
         <div class="button-container">
             <a href="https://discord.gg/xX3BAJcYCD" target="_blank" class="button">Join Us on Discord</a>
+                <img src="images/discord.pnng" alt="Discord logo">
             <a href="https://youtube.com/@kelesbasementsupport?si=-KS7T2saOWKYMCf5" target="_blank" class="button">YouTube Channel</a>
+                <img src="images/yt.png" alt="YouTube logo">
             <a href="https://x.com/Kelepotrak" target="_blank" class="button">Follow on Twitter</a>
+                <img src="images/X.png" alt="X logo">
         </div>
     </section>
 
