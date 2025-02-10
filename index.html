@@ -78,14 +78,38 @@
             font-size: 1.1em;
         }
 
-        .highlights {
-            margin-top: 30px;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.5); /* Półprzezroczyste tło */
-            border-radius: 10px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: rgba(85, 85, 85, 0.8);
+            border-radius: 5px;
+        }
+
+        section {
+            padding: 80px 20px;
+            display: none; /* Ukrycie sekcji domyślnie */
+        }
+
+        section.active {
+            display: block; /* Aktywna sekcja widoczna */
         }
 
         .highlights ul {
@@ -112,17 +136,26 @@
     </style>
 </head>
 <body>
-    <h1>Kelefotrak's Basement</h1>
-    <p>This is the website for Kelefotrak’s Basement. Kelefotrak’s Basement is a small community we started on Discord. Discord is a popular platform for communications, be it voice, video, or text. We at Kelefotrak’s Basement take pride in our ability to free speech. We embrace diversity and fairness and welcome everyone without bias. We are very open to new people, and we are sure if you drop in, you’ll love it and will most likely stay.</p>
-    
-    <div class="button-container">
-        <a href="https://discord.gg/xX3BAJcYCD" target="_blank" class="button">Join Us on Discord</a>
-        <a href="https://youtube.com/@kelesbasementsupport?si=-KS7T2saOWKYMCf5" target="_blank" class="button">YouTube Channel</a>
-        <a href="https://x.com/Kelepotrak" target="_blank" class="button">Follow on Twitter</a>
-    </div>
+    <!-- Pasek nawigacyjny -->
+    <nav class="navbar">
+        <a href="#home" onclick="showSection('home')">Home</a>
+        <a href="#highlights" onclick="showSection('highlights')">Highlights</a>
+    </nav>
+
+    <!-- Sekcja główna -->
+    <section id="home" class="active">
+        <h1>Kelefotrak's Basement</h1>
+        <p>This is the website for Kelefotrak’s Basement. Kelefotrak’s Basement is a small community we started on Discord. Discord is a popular platform for communications, be it voice, video, or text. We at Kelefotrak’s Basement take pride in our ability to free speech. We embrace diversity and fairness and welcome everyone without bias. We are very open to new people, and we are sure if you drop in, you’ll love it and will most likely stay.</p>
+        
+        <div class="button-container">
+            <a href="https://discord.gg/xX3BAJcYCD" target="_blank" class="button">Join Us on Discord</a>
+            <a href="https://youtube.com/@kelesbasementsupport?si=-KS7T2saOWKYMCf5" target="_blank" class="button">YouTube Channel</a>
+            <a href="https://x.com/Kelepotrak" target="_blank" class="button">Follow on Twitter</a>
+        </div>
+    </section>
 
     <!-- Sekcja Highlights -->
-    <div class="highlights">
+    <section id="highlights">
         <h2>Highlights</h2>
         <p>Check out some of the amazing things happening in our community:</p>
         <ul>
@@ -131,7 +164,7 @@
             <li>📢 Open discussions on various topics.</li>
             <li>💬 Active chatrooms and voice channels on Discord.</li>
         </ul>
-    </div>
+    </section>
 
     <!-- Centralized footer content -->
     <footer>
@@ -142,5 +175,14 @@
             © 2025 Kelefotrak's Basement. All rights reserved.
         </div>
     </footer>
+
+    <script>
+        // Funkcja do przełączania sekcji
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => section.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
 </body>
 </html>
