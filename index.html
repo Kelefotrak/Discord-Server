@@ -7,14 +7,14 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            font-size: 18px; /* Increased font size */
+            font-size: 20px; /* Powiększona czcionka dla całego tekstu */
             margin: 0;
             padding: 0;
-            background-image: url('banner.png'); /* Dodaj obrazek jako tło */
-            background-size: cover; /* Dopasowanie obrazu do całej strony */
-            background-position: center; /* Wyśrodkowanie obrazu */
-            background-repeat: no-repeat; /* Brak powtarzania obrazu */
-            background-attachment: fixed; /* Utrzymanie tła podczas przewijania */
+            background-image: url('banner.png'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             color: #ffffff;
             text-align: center;
             display: flex;
@@ -23,21 +23,21 @@
         }
 
         h1 {
-            font-size: 2.5em; /* Increased heading size */
+            font-size: 3em; /* Większy nagłówek */
             margin-top: 20px;
         }
 
         h2 {
-            font-size: 2em; /* Increased subheading size */
+            font-size: 2.5em; /* Większy podtytuł */
             margin-top: 20px;
         }
 
         p, ul {
             max-width: 600px;
             margin: 20px auto;
-            line-height: 1.8; /* Slightly larger line spacing */
-            background-color: rgba(0, 0, 0, 0.5); /* Półprzezroczyste tło dla lepszej czytelności */
-            padding: 10px;
+            line-height: 2; /* Większy odstęp między wierszami */
+            background-color: rgba(0, 0, 0, 0.5); 
+            padding: 15px;
             border-radius: 10px;
         }
 
@@ -54,17 +54,14 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 10px;
+            gap: 15px;
             margin-top: 20px;
         }
 
-        a {
-            text-decoration: none;
-        }
-
         .button {
-            padding: 12px 24px; /* Increased button size */
-            background-color: rgba(51, 51, 51, 0.8); /* Półprzezroczysty przycisk */
+            font-size: 1.2em; /* Powiększona czcionka przycisków */
+            padding: 15px 30px; 
+            background-color: rgba(51, 51, 51, 0.8); 
             color: #fff;
             border: 2px solid #555;
             border-radius: 5px;
@@ -79,31 +76,27 @@
 
         footer {
             margin-top: auto;
-            font-size: 1.1em; /* Slightly larger footer text */
+            font-size: 0.9em; /* Zmniejszona czcionka w stopce */
             color: #ccc;
-            background-color: rgba(0, 0, 0, 0.5); /* Półprzezroczyste tło dla stopki */
+            background-color: rgba(0, 0, 0, 0.5);
             padding: 10px;
             position: relative;
         }
 
-        .footer-text {
-            margin-top: 10px;
-        }
-
-        .founders-text {
-            margin-top: 10px;
-            font-size: 1.2em;
+        .footer-text, .founders-text {
+            margin-top: 5px;
         }
 
         .small-note {
             position: absolute;
             bottom: 5px;
             right: 10px;
-            font-size: 0.8em; /* Small font for the additional text */
+            font-size: 0.8em;
             color: #bbb;
         }
 
         .navbar {
+            font-size: 1.2em; /* Powiększona czcionka nawigacji */
             background-color: rgba(0, 0, 0, 0.8);
             padding: 10px;
             position: fixed;
@@ -119,7 +112,7 @@
         .navbar a {
             color: #fff;
             text-decoration: none;
-            padding: 10px 15px;
+            padding: 12px 18px;
             transition: 0.3s ease;
         }
 
@@ -129,12 +122,7 @@
         }
 
         section {
-            padding: 80px 20px;
-            display: none; /* Ukrycie sekcji domyślnie */
-        }
-
-        section.active {
-            display: block; /* Aktywna sekcja widoczna */
+            padding: 100px 20px;
         }
 
         /* Mobile view */
@@ -203,7 +191,6 @@
     </footer>
 
     <script>
-        // Funkcja do przełączania sekcji
         function showSection(sectionId) {
             const sections = document.querySelectorAll('section');
             sections.forEach(section => section.classList.remove('active'));
