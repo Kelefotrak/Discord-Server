@@ -32,22 +32,26 @@
             margin-top: 15px;
         }
 
-        p, ul {
-            max-width: 80%;
-            margin: 20px auto;
-            line-height: 1.5;
-            background-color: rgba(0, 0, 0, 0.6);
-            padding: 10px;
-            border-radius: 8px;
+        /* Styl dla sekcji Home */
+        #home {
+            padding: 30px;
+            background-color: rgba(0, 0, 0, 0.7);  /* Przezroczyste tło dla tekstu */
+            border-radius: 15px;  /* Zaokrąglone rogi */
+            max-width: 80%;  /* Ogranicz szerokość */
+            margin: 20px auto;  /* Wyśrodkowanie */
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);  /* Cień wokół sekcji */
         }
 
-        ul {
-            list-style: none;
-            padding: 0;
+        #home p {
+            font-size: 1.2em;  /* Zwiększ czcionkę */
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
 
-        li {
-            margin: 8px 0;
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
         }
 
         .button-container {
@@ -60,7 +64,7 @@
 
         .button {
             font-size: 1.2em;
-            padding: 8px 16px; 
+            padding: 10px 20px; 
             background-color: rgba(51, 51, 51, 0.8);
             color: #fff;
             border: 2px solid #555;
@@ -205,19 +209,21 @@
 
     <!-- Sekcja główna -->
     <section id="home" class="active">
-        <h1>Kelefotrak's Basement</h1>
-        <p>This is the website for Kelefotrak’s Basement. Kelefotrak’s Basement is a small community we started on Discord. Discord is a popular platform for communications, be it voice, video, or text. We at Kelefotrak’s Basement take pride in our ability to free speech. We embrace diversity and fairness and welcome everyone without bias. We are very open to new people, and we are sure if you drop in, you’ll love it and will most likely stay.</p>
-        
-        <div class="button-container">
-            <a href="https://discord.gg/xX3BAJcYCD" target="_blank" class="button">
-                <img src="Discord.png" alt="Discord" class="icon"> Discord
-            </a>
-            <a href="https://youtube.com/@kelesbasementsupport?si=-KS7T2saOWKYMCf5" target="_blank" class="button">
-                <img src="yt.png" alt="YouTube" class="icon"> YouTube Channel
-            </a>
-            <a href="https://x.com/Kelepotrak" target="_blank" class="button">
-                <img src="X.png" alt="Twitter" class="icon"> Twitter
-            </a>
+        <div>
+            <h1>Kelefotrak's Basement</h1>
+            <p>This is the website for Kelefotrak’s Basement. Kelefotrak’s Basement is a small community we started on Discord. Discord is a popular platform for communications, be it voice, video, or text. We at Kelefotrak’s Basement take pride in our ability to free speech. We embrace diversity and fairness and welcome everyone without bias. We are very open to new people, and we are sure if you drop in, you’ll love it and will most likely stay.</p>
+            
+            <div class="button-container">
+                <a href="https://discord.gg/xX3BAJcYCD" target="_blank" class="button">
+                    <img src="Discord.png" alt="Discord" class="icon"> Discord
+                </a>
+                <a href="https://youtube.com/@kelesbasementsupport?si=-KS7T2saOWKYMCf5" target="_blank" class="button">
+                    <img src="yt.png" alt="YouTube" class="icon"> YouTube Channel
+                </a>
+                <a href="https://x.com/Kelepotrak" target="_blank" class="button">
+                    <img src="X.png" alt="Twitter" class="icon"> Twitter
+                </a>
+            </div>
         </div>
     </section>
 
