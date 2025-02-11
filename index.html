@@ -123,6 +123,7 @@
             justify-content: center;
             gap: 15px;
             z-index: 1000;
+            transition: top 0.3s; /* Transition for hiding/showing navbar */
         }
 
         .navbar a {
@@ -241,6 +242,21 @@
         footer .social-links a:hover {
             color: #fff;
         }
+
+        /* Smooth scroll text in home section */
+        .home-text {
+            max-width: 80%;
+            margin: 20px auto;
+            text-align: left;
+            line-height: 1.8;
+            overflow-y: auto;
+            max-height: 60vh; /* limit height for scrolling */
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 8px;
+            text-align: left;
+        }
+
     </style>
 </head>
 <body>
@@ -255,7 +271,9 @@
     <!-- Sekcja główna -->
     <section id="home" class="active">
         <h1>Kelefotrak's Basement</h1>
-        <p>This is the website for Kelefotrak’s Basement. Kelefotrak’s Basement is a small community we started on Discord. Discord is a popular platform for communications, be it voice, video, or text. We at Kelefotrak’s Basement take pride in our ability to free speech. We embrace diversity and fairness and welcome everyone without bias. We are very open to new people, and we are sure if you drop in, you’ll love it and will most likely stay.</p>
+        <div class="home-text">
+            <p>This is the website for Kelefotrak’s Basement. Kelefotrak’s Basement is a small community we started on Discord. Discord is a popular platform for communications, be it voice, video, or text. We at Kelefotrak’s Basement take pride in our ability to free speech. We embrace diversity and fairness and welcome everyone without bias. We are very open to new people, and we are sure if you drop in, you’ll love it and will most likely stay.</p>
+        </div>
         
         <div class="button-container">
             <a href="https://discord.gg/xX3BAJcYCD" target="_blank" class="button">
@@ -330,19 +348,20 @@
     <!-- Sekcja Announcements -->
     <section id="announcements">
         <h2>Announcements</h2>
-        <p>Second video is now on our YT channel.Go check it out!https://www.youtube.com/shorts/fDE6C6XVJ0A</p>
+        <p>Second video is now on our YT channel.</p>
     </section>
 
     <!-- Centralized footer content -->
     <footer>
         <div class="founders-text">
-            Founders: Kelefotrak, Grass (Victoria) and Adapt
+            Founders: Kelefotrak and Grass (Victoria). Tester: Adapt
         </div>
         <div class="footer-text">
             © 2025 Kelefotrak's Basement. All rights reserved.
         </div>
         <div class="social-links">
             <a href="https://discord.gg/xX3BAJcYCD" target="_blank">Discord</a> | 
+            <a href="https://youtube.com/@kelesbasementsupport?si=-KS7T2saOWKYMCf5" target="_blank">YouTube</a> | 
             <a href="https://twitter.com/Kelepotrak" target="_blank">Twitter</a>
         </div>
         <div class="small-note">Grass is a Loona SIMP</div>
@@ -369,6 +388,19 @@
             const activeLink = document.querySelector(`.navbar a[href="#${sectionId}"]`);
             activeLink.classList.add('active');
         }
+
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('.navbar');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop) {
+                navbar.style.top = "-60px"; // Hide navbar when scrolling down
+            } else {
+                navbar.style.top = "0"; // Show navbar when scrolling up
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Prevent negative scroll
+        });
     </script>
 </body>
 </html>
