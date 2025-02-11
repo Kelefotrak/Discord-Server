@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.8"> <!-- Zmniejszenie początkowej skali -->
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
     <title>Kelefotrak's Basement</title>
     <style>
         body {
@@ -23,7 +23,7 @@
         }
 
         h1 {
-            font-size: 4vw; /* Zmniejszenie czcionki */
+            font-size: 4vw;
             margin-top: 10px;
         }
 
@@ -59,7 +59,7 @@
         }
 
         .button {
-            font-size: 1.2em; /* Zmniejszenie czcionki przycisków */
+            font-size: 1.2em;
             padding: 8px 16px; 
             background-color: rgba(51, 51, 51, 0.8);
             color: #fff;
@@ -97,7 +97,7 @@
         }
 
         .navbar {
-            font-size: 1.5vw; /* Zmniejszenie czcionki na pasku nawigacyjnym */
+            font-size: 1.5vw;
             background-color: rgba(0, 0, 0, 0.8);
             padding: 10px;
             position: fixed;
@@ -149,13 +149,16 @@
         }
 
         .slide {
-            min-width: 70%; /* Zmniejszenie szerokości slajdów */
+            min-width: 100%; /* Ustawiłem na 100% szerokości kontenera, by pokazać tylko jeden obrazek */
             box-sizing: border-box;
+            display: flex;
+            justify-content: center;
         }
 
         .slide img {
-            width: 100%;
+            width: 100%; /* Obrazki zajmują 100% szerokości swojego kontenera */
             height: auto;
+            max-width: 100%; /* Zabezpieczenie przed zniekształceniem */
         }
 
         .prev, .next {
@@ -166,7 +169,7 @@
             color: white;
             border: none;
             padding: 8px;
-            font-size: 1.5em; /* Zmniejszenie rozmiaru strzałek */
+            font-size: 1.5em;
             cursor: pointer;
         }
 
@@ -181,7 +184,7 @@
         /* Mobile view */
         @media (max-width: 768px) {
             .button {
-                width: 90%; /* Zmniejszenie przycisków na małych ekranach */
+                width: 90%;
                 box-sizing: border-box;
             }
 
@@ -218,95 +221,95 @@
         </div>
     </section>
 
-<!-- Sekcja Highlights -->
-<section id="highlights">
-    <h2>Highlights</h2>
-    <div class="slider-container">
-        <div class="slides">
-            <!-- 10 obrazków -->
-            <div class="slide">
-                <img src="highlight1.jfif" alt="Highlight 1">
+    <!-- Sekcja Highlights -->
+    <section id="highlights">
+        <h2>Highlights</h2>
+        <div class="slider-container">
+            <div class="slides">
+                <!-- 10 obrazków -->
+                <div class="slide">
+                    <img src="highlight1.jfif" alt="Highlight 1">
+                </div>
+                <div class="slide">
+                    <img src="highlight2.jfif" alt="Highlight 2">
+                </div>
+                <div class="slide">
+                    <img src="highlight3.jfif" alt="Highlight 3">
+                </div>
+                <div class="slide">
+                    <img src="highlight4.jfif" alt="Highlight 4">
+                </div>
+                <div class="slide">
+                    <img src="highlight5.jfif" alt="Highlight 5">
+                </div>
+                <div class="slide">
+                    <img src="highlight6.jfif" alt="Highlight 6">
+                </div>
+                <div class="slide">
+                    <img src="highlight7.jfif" alt="Highlight 7">
+                </div>
+                <div class="slide">
+                    <img src="highlight8.jfif" alt="Highlight 8">
+                </div>
+                <div class="slide">
+                    <img src="highlight9.jfif" alt="Highlight 9">
+                </div>
+                <div class="slide">
+                    <img src="highlight10.jfif" alt="Highlight 10">
+                </div>
             </div>
-            <div class="slide">
-                <img src="highlight2.jfif" alt="Highlight 2">
-            </div>
-            <div class="slide">
-                <img src="highlight3.jfif" alt="Highlight 3">
-            </div>
-            <div class="slide">
-                <img src="highlight4.jfif" alt="Highlight 4">
-            </div>
-            <div class="slide">
-                <img src="highlight5.jfif" alt="Highlight 5">
-            </div>
-            <div class="slide">
-                <img src="highlight6.jfif" alt="Highlight 6">
-            </div>
-            <div class="slide">
-                <img src="highlight7.jfif" alt="Highlight 7">
-            </div>
-            <div class="slide">
-                <img src="highlight8.jfif" alt="Highlight 8">
-            </div>
-            <div class="slide">
-                <img src="highlight9.jfif" alt="Highlight 9">
-            </div>
-            <div class="slide">
-                <img src="highlight10.jfif" alt="Highlight 10">
-            </div>
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
         </div>
-        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
-        <button class="next" onclick="moveSlide(1)">&#10095;</button>
-    </div>
-</section>
+    </section>
 
-<!-- Sekcja Rules -->
-<section id="rules">
-    <h2>Rules</h2>
-    <ul>
-        <li>🚫 Don't be an asshole.</li>
-        <li>📵 Don't spam.</li>
-        <li>🗣️ Try to keep it English only. (Polish and German are exceptions).</li>
-        <li>📜 Follow Discord ToS and community guidelines.</li>
-        <li>❌ This server isn't NSFW, we have 2 channels for NSFW purposes so use them.</li>
-        <li>⚠️ Any positive comments about Simon Cowell or Griffith will result in a warning.</li>
-        <li>💖 Be kind.</li>
-        <li>🔇 Any self-promotion not agreed with any @Owner will result in a warning and a mute.</li>
-    </ul>
-</section>
+    <!-- Sekcja Rules -->
+    <section id="rules">
+        <h2>Rules</h2>
+        <ul>
+            <li>🚫 Don't be an asshole.</li>
+            <li>📵 Don't spam.</li>
+            <li>🗣️ Try to keep it English only. (Polish and German are exceptions).</li>
+            <li>📜 Follow Discord ToS and community guidelines.</li>
+            <li>❌ This server isn't NSFW, we have 2 channels for NSFW purposes so use them.</li>
+            <li>⚠️ Any positive comments about Simon Cowell or Griffith will result in a warning.</li>
+            <li>💖 Be kind.</li>
+            <li>🔇 Any self-promotion not agreed with any @Owner will result in a warning and a mute.</li>
+        </ul>
+    </section>
 
-<!-- Sekcja Announcements -->
-<section id="announcements">
-    <h2>Announcements</h2>
-    <p>Second video is now on our YT channel.</p>
-</section>
+    <!-- Sekcja Announcements -->
+    <section id="announcements">
+        <h2>Announcements</h2>
+        <p>Second video is now on our YT channel.</p>
+    </section>
 
-<!-- Centralized footer content -->
-<footer>
-    <div class="founders-text">
-        Founders: Kelefotrak and Grass (Victoria). Tester: Adapt
-    </div>
-    <div class="footer-text">
-        © 2025 Kelefotrak's Basement. All rights reserved.
-    </div>
-    <div class="small-note">Grass is a Loona SIMP</div>
-</footer>
+    <!-- Centralized footer content -->
+    <footer>
+        <div class="founders-text">
+            Founders: Kelefotrak and Grass (Victoria). Tester: Adapt
+        </div>
+        <div class="footer-text">
+            © 2025 Kelefotrak's Basement. All rights reserved.
+        </div>
+        <div class="small-note">Grass is a Loona SIMP</div>
+    </footer>
 
-<script>
-    let slideIndex = 0;
+    <script>
+        let slideIndex = 0;
 
-    function moveSlide(step) {
-        const slides = document.querySelectorAll('.slide');
-        slideIndex = (slideIndex + step + slides.length) % slides.length;
-        const slidesContainer = document.querySelector('.slides');
-        slidesContainer.style.transform = `translateX(-${slideIndex * 100}%)`;
-    }
+        function moveSlide(step) {
+            const slides = document.querySelectorAll('.slide');
+            slideIndex = (slideIndex + step + slides.length) % slides.length;
+            const slidesContainer = document.querySelector('.slides');
+            slidesContainer.style.transform = `translateX(-${slideIndex * 100}%)`;
+        }
 
-    function showSection(sectionId) {
-        const sections = document.querySelectorAll('section');
-        sections.forEach(section => section.classList.remove('active'));
-        document.getElementById(sectionId).classList.add('active');
-    }
-</script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => section.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
 </body>
 </html>
