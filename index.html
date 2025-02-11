@@ -196,43 +196,71 @@
         </div>
     </section>
 
-  
-    <!-- Sekcja Highlights -->
-    <section id="highlights">
-        <h2>Highlights</h2>
-        <div class="highlights-grid">
-            <div class="highlight-item" onclick="openLightbox('highlight1.jfif')">
-                <img src="highlight1.jfif" alt="Highlight 1">
-            </div>
-            <div class="highlight-item" onclick="openLightbox('highlight2.jfif')">
-                <img src="highlight2.jfif" alt="Highlight 2">
-            </div>
-            <div class="highlight-item" onclick="openLightbox('highlight3.jfif')">
-                <img src="highlight3.jfif" alt="Highlight 3">
-            </div>
-            <div class="highlight-item" onclick="openLightbox('highlight4.jfif')">
-                <img src="highlight4.jfif" alt="Highlight 4">
-            </div>
-            <div class="highlight-item" onclick="openLightbox('highlight5.jfif')">
-                <img src="highlight5.jfif" alt="Highlight 5">
-            </div>
-            <div class="highlight-item" onclick="openLightbox('highlight6.jfif')">
-                <img src="highlight6.jfif" alt="Highlight 6">
-            </div>
-            <div class="highlight-item" onclick="openLightbox('highlight7.jfif')">
-                <img src="highlight7.jfif" alt="Highlight 7">
-            </div>
-            <div class="highlight-item" onclick="openLightbox('highlight8.jfif')">
-                <img src="highlight8.jfif" alt="Highlight 8">
-            </div>
-            <div class="highlight-item" onclick="openLightbox('highlight9.jfif')">
-                <img src="highlight9.jfif" alt="Highlight 9">
-            </div>
-            <div class="highlight-item" onclick="openLightbox('highlight10.jfif')">
-                <img src="highlight10.jfif" alt="Highlight 10">
-            </div>
+<!-- Sekcja Highlights -->
+<section id="highlights">
+    <h2>Highlights</h2>
+    <div class="highlights-grid">
+        <div class="highlight-item" onclick="openLightbox('highlight1.jfif')" tabindex="0" role="button" aria-label="Otwórz obrazek Highlight 1">
+            <img src="highlight1.jfif" alt="Highlight 1">
         </div>
-    </section>
+        <div class="highlight-item" onclick="openLightbox('highlight2.jfif')" tabindex="0" role="button" aria-label="Otwórz obrazek Highlight 2">
+            <img src="highlight2.jfif" alt="Highlight 2">
+        </div>
+        <div class="highlight-item" onclick="openLightbox('highlight3.jfif')" tabindex="0" role="button" aria-label="Otwórz obrazek Highlight 3">
+            <img src="highlight3.jfif" alt="Highlight 3">
+        </div>
+        <div class="highlight-item" onclick="openLightbox('highlight4.jfif')" tabindex="0" role="button" aria-label="Otwórz obrazek Highlight 4">
+            <img src="highlight4.jfif" alt="Highlight 4">
+        </div>
+        <div class="highlight-item" onclick="openLightbox('highlight5.jfif')" tabindex="0" role="button" aria-label="Otwórz obrazek Highlight 5">
+            <img src="highlight5.jfif" alt="Highlight 5">
+        </div>
+        <div class="highlight-item" onclick="openLightbox('highlight6.jfif')" tabindex="0" role="button" aria-label="Otwórz obrazek Highlight 6">
+            <img src="highlight6.jfif" alt="Highlight 6">
+        </div>
+        <div class="highlight-item" onclick="openLightbox('highlight7.jpg')" tabindex="0" role="button" aria-label="Otwórz obrazek Highlight 7">
+            <img src="highlight7.jpg" alt="Highlight 7">
+        </div>
+        <div class="highlight-item" onclick="openLightbox('highlight8.jfif')" tabindex="0" role="button" aria-label="Otwórz obrazek Highlight 8">
+            <img src="highlight8.jfif" alt="Highlight 8">
+        </div>
+        <div class="highlight-item" onclick="openLightbox('highlight9.jfif')" tabindex="0" role="button" aria-label="Otwórz obrazek Highlight 9">
+            <img src="highlight9.jfif" alt="Highlight 9">
+        </div>
+        <div class="highlight-item" onclick="openLightbox('highlight10.jfif')" tabindex="0" role="button" aria-label="Otwórz obrazek Highlight 10">
+            <img src="highlight10.jfif" alt="Highlight 10">
+        </div>
+    </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+    <button class="close-btn" onclick="closeLightbox()" aria-label="Zamknij podgląd">&times;</button>
+    <img id="lightbox-img" src="" alt="Rozszerzony podgląd">
+</div>
+
+<script>
+    function openLightbox(imageSrc) {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        lightboxImg.src = imageSrc;
+        lightbox.classList.add('active');
+        lightbox.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeLightbox() {
+        const lightbox = document.getElementById('lightbox');
+        lightbox.classList.remove('active');
+        lightbox.setAttribute('aria-hidden', 'true');
+    }
+
+    // Zamknięcie lightbox za pomocą klawisza ESC
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            closeLightbox();
+        }
+    });
+</script>
 
     <!-- Sekcja Rules -->
     <section id="rules">
