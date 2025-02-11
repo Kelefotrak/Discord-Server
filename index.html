@@ -9,7 +9,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('banner.png'); 
+            background-image: url('banner.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -20,6 +20,18 @@
             flex-direction: column;
             min-height: 100vh;
             overflow-x: hidden;
+            position: relative;
+        }
+
+        body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+            z-index: -1;
         }
 
         h1 {
@@ -32,26 +44,22 @@
             margin-top: 15px;
         }
 
-        /* Styl dla sekcji Home */
-        #home {
-            padding: 30px;
-            background-color: rgba(0, 0, 0, 0.7);  /* Przezroczyste tło dla tekstu */
-            border-radius: 15px;  /* Zaokrąglone rogi */
-            max-width: 80%;  /* Ogranicz szerokość */
-            margin: 20px auto;  /* Wyśrodkowanie */
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);  /* Cień wokół sekcji */
+        p, ul {
+            max-width: 80%;
+            margin: 20px auto;
+            line-height: 1.5;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 10px;
+            border-radius: 8px;
         }
 
-        #home p {
-            font-size: 1.2em;  /* Zwiększ czcionkę */
-            line-height: 1.6;
-            margin-bottom: 20px;
+        ul {
+            list-style: none;
+            padding: 0;
         }
 
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
+        li {
+            margin: 8px 0;
         }
 
         .button-container {
@@ -64,7 +72,7 @@
 
         .button {
             font-size: 1.2em;
-            padding: 10px 20px; 
+            padding: 8px 16px;
             background-color: rgba(51, 51, 51, 0.8);
             color: #fff;
             border: 2px solid #555;
@@ -78,14 +86,17 @@
         .button:hover {
             background-color: rgba(85, 85, 85, 0.8);
             color: #fff;
+            transform: translateY(-3px); /* Subtle lifting effect */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Adds shadow */
         }
 
         footer {
             margin-top: auto;
-            font-size: 0.9em; 
+            font-size: 1em;
             color: #ccc;
-            background-color: rgba(0, 0, 0, 0.6);
-            padding: 8px;
+            background-color: rgba(0, 0, 0, 0.7); /* Darker background */
+            padding: 20px 15px;
+            border-top: 2px solid #444;
         }
 
         .footer-text, .founders-text {
@@ -126,6 +137,11 @@
             border-radius: 5px;
         }
 
+        .navbar a.active {
+            background-color: rgba(85, 85, 85, 0.8);
+            border-radius: 5px;
+        }
+
         section {
             padding: 60px 15px;
             display: none;
@@ -142,27 +158,28 @@
 
         .slider-container {
             position: relative;
-            max-width: 70%;
+            max-width: 80%; /* Reduced width for better presentation */
             margin: 0 auto;
             overflow: hidden;
+            border-radius: 10px; /* Rounded corners */
         }
 
         .slides {
             display: flex;
-            transition: transform 0.5s ease-in-out;
+            transition: transform 0.6s ease-in-out; /* Smoother transition */
         }
 
         .slide {
-            min-width: 100%; /* Ustawiłem na 100% szerokości kontenera, by pokazać tylko jeden obrazek */
+            min-width: 100%;
             box-sizing: border-box;
             display: flex;
             justify-content: center;
         }
 
         .slide img {
-            width: 100%; /* Obrazki zajmują 100% szerokości swojego kontenera */
+            width: 100%;
             height: auto;
-            max-width: 100%; /* Zabezpieczenie przed zniekształceniem */
+            max-width: 100%;
         }
 
         .prev, .next {
@@ -195,6 +212,34 @@
             p {
                 padding: 0 10px;
             }
+
+            h1 {
+                font-size: 6vw; /* Smaller font size */
+            }
+
+            h2 {
+                font-size: 5vw;
+            }
+
+            .slider-container {
+                max-width: 90%;
+            }
+        }
+
+        footer .social-links {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #bbb;
+        }
+
+        footer .social-links a {
+            color: #bbb;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer .social-links a:hover {
+            color: #fff;
         }
     </style>
 </head>
@@ -209,21 +254,19 @@
 
     <!-- Sekcja główna -->
     <section id="home" class="active">
-        <div>
-            <h1>Kelefotrak's Basement</h1>
-            <p>This is the website for Kelefotrak’s Basement. Kelefotrak’s Basement is a small community we started on Discord. Discord is a popular platform for communications, be it voice, video, or text. We at Kelefotrak’s Basement take pride in our ability to free speech. We embrace diversity and fairness and welcome everyone without bias. We are very open to new people, and we are sure if you drop in, you’ll love it and will most likely stay.</p>
-            
-            <div class="button-container">
-                <a href="https://discord.gg/xX3BAJcYCD" target="_blank" class="button">
-                    <img src="Discord.png" alt="Discord" class="icon"> Discord
-                </a>
-                <a href="https://youtube.com/@kelesbasementsupport?si=-KS7T2saOWKYMCf5" target="_blank" class="button">
-                    <img src="yt.png" alt="YouTube" class="icon"> YouTube Channel
-                </a>
-                <a href="https://x.com/Kelepotrak" target="_blank" class="button">
-                    <img src="X.png" alt="Twitter" class="icon"> Twitter
-                </a>
-            </div>
+        <h1>Kelefotrak's Basement</h1>
+        <p>This is the website for Kelefotrak’s Basement. Kelefotrak’s Basement is a small community we started on Discord. Discord is a popular platform for communications, be it voice, video, or text. We at Kelefotrak’s Basement take pride in our ability to free speech. We embrace diversity and fairness and welcome everyone without bias. We are very open to new people, and we are sure if you drop in, you’ll love it and will most likely stay.</p>
+        
+        <div class="button-container">
+            <a href="https://discord.gg/xX3BAJcYCD" target="_blank" class="button">
+                <img src="Discord.png" alt="Discord" class="icon"> Discord
+            </a>
+            <a href="https://youtube.com/@kelesbasementsupport?si=-KS7T2saOWKYMCf5" target="_blank" class="button">
+                <img src="yt.png" alt="YouTube" class="icon"> YouTube Channel
+            </a>
+            <a href="https://x.com/Kelepotrak" target="_blank" class="button">
+                <img src="X.png" alt="Twitter" class="icon"> Twitter
+            </a>
         </div>
     </section>
 
@@ -298,6 +341,10 @@
         <div class="footer-text">
             © 2025 Kelefotrak's Basement. All rights reserved.
         </div>
+        <div class="social-links">
+            <a href="https://discord.gg/xX3BAJcYCD" target="_blank">Discord</a> | 
+            <a href="https://twitter.com/Kelepotrak" target="_blank">Twitter</a>
+        </div>
         <div class="small-note">Grass is a Loona SIMP</div>
     </footer>
 
@@ -314,7 +361,13 @@
         function showSection(sectionId) {
             const sections = document.querySelectorAll('section');
             sections.forEach(section => section.classList.remove('active'));
+
+            const links = document.querySelectorAll('.navbar a');
+            links.forEach(link => link.classList.remove('active'));
+
             document.getElementById(sectionId).classList.add('active');
+            const activeLink = document.querySelector(`.navbar a[href="#${sectionId}"]`);
+            activeLink.classList.add('active');
         }
     </script>
 </body>
