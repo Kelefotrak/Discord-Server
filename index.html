@@ -138,22 +138,46 @@
             height: 20px;
         }
 
-        .highlights-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-            margin: 20px;
+        .slider-container {
+            position: relative;
+            max-width: 100%;
+            margin: 0 auto;
         }
 
-        .highlight-item {
-            background-color: rgba(0, 0, 0, 0.5);
-            border-radius: 10px;
+        .slides {
+            display: flex;
             overflow: hidden;
         }
 
-        .highlight-item img {
+        .slide {
+            min-width: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide img {
             width: 100%;
             height: auto;
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
         }
 
         /* Mobile view */
@@ -196,71 +220,26 @@
         </div>
     </section>
 
-<!-- Sekcja Highlights -->
-<section id="highlights">
-    <h2>Highlights</h2>
-    <div class="highlights-grid">
-        <div class="highlight-item" onclick="openLightbox('highlight1.jfif')" tabindex="0" role="button" aria-label="Otwórz obrazek Highlight 1">
-            <img src="highlight1.jfif" alt="Highlight 1">
+    <!-- Sekcja Highlights z pokazem slajdów -->
+    <section id="highlights">
+        <h2>Highlights</h2>
+        <div class="slider-container">
+            <div class="slides">
+                <div class="slide"><img src="highlight1.jfif" alt="Highlight 1"></div>
+                <div class="slide"><img src="highlight2.jfif" alt="Highlight 2"></div>
+                <div class="slide"><img src="highlight3.jfif" alt="Highlight 3"></div>
+                <div class="slide"><img src="highlight4.jfif" alt="Highlight 4"></div>
+                <div class="slide"><img src="highlight5.jfif" alt="Highlight 5"></div>
+                <div class="slide"><img src="highlight6.jfif" alt="Highlight 6"></div>
+                <div class="slide"><img src="highlight7.jfif" alt="Highlight 7"></div>
+                <div class="slide"><img src="highlight8.jfif" alt="Highlight 8"></div>
+                <div class="slide"><img src="highlight9.jfif" alt="Highlight 9"></div>
+                <div class="slide"><img src="highlight10.jfif" alt="Highlight 10"></div>
+            </div>
+            <button class="prev" onclick="moveSlide(-1)">❮</button>
+            <button class="next" onclick="moveSlide(1)">❯</button>
         </div>
-        <div class="highlight-item" onclick="openLightbox('highlight2.jfif')" tabindex="0" role="button" aria-label="Otwórz obrazek Highlight 2">
-            <img src="highlight2.jfif" alt="Highlight 2">
-        </div>
-        <div class="highlight-item" onclick="openLightbox('highlight3.jfif')" tabindex="0" role="button" aria-label="Otwórz obrazek Highlight 3">
-            <img src="highlight3.jfif" alt="Highlight 3">
-        </div>
-        <div class="highlight-item" onclick="openLightbox('highlight4.jfif')" tabindex="0" role="button" aria-label="Otwórz obrazek Highlight 4">
-            <img src="highlight4.jfif" alt="Highlight 4">
-        </div>
-        <div class="highlight-item" onclick="openLightbox('highlight5.jfif')" tabindex="0" role="button" aria-label="Otwórz obrazek Highlight 5">
-            <img src="highlight5.jfif" alt="Highlight 5">
-        </div>
-        <div class="highlight-item" onclick="openLightbox('highlight6.jfif')" tabindex="0" role="button" aria-label="Otwórz obrazek Highlight 6">
-            <img src="highlight6.jfif" alt="Highlight 6">
-        </div>
-        <div class="highlight-item" onclick="openLightbox('highlight7.jfif')" tabindex="0" role="button" aria-label="Otwórz obrazek Highlight 7">
-            <img src="highlight7.jfif" alt="Highlight 7">
-        </div>
-        <div class="highlight-item" onclick="openLightbox('highlight8.jfif')" tabindex="0" role="button" aria-label="Otwórz obrazek Highlight 8">
-            <img src="highlight8.jfif" alt="Highlight 8">
-        </div>
-        <div class="highlight-item" onclick="openLightbox('highlight9.jfif')" tabindex="0" role="button" aria-label="Otwórz obrazek Highlight 9">
-            <img src="highlight9.jfif" alt="Highlight 9">
-        </div>
-        <div class="highlight-item" onclick="openLightbox('highlight10.jfif')" tabindex="0" role="button" aria-label="Otwórz obrazek Highlight 10">
-            <img src="highlight10.jfif" alt="Highlight 10">
-        </div>
-    </div>
-</section>
-
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
-    <button class="close-btn" onclick="closeLightbox()" aria-label="Zamknij podgląd">&times;</button>
-    <img id="lightbox-img" src="" alt="Image big as my dick">
-</div>
-
-<script>
-    function openLightbox(imageSrc) {
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        lightboxImg.src = imageSrc;
-        lightbox.classList.add('active');
-        lightbox.setAttribute('aria-hidden', 'false');
-    }
-
-    function closeLightbox() {
-        const lightbox = document.getElementById('lightbox');
-        lightbox.classList.remove('active');
-        lightbox.setAttribute('aria-hidden', 'true');
-    }
-
-    // Zamknięcie lightbox za pomocą klawisza ESC
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') {
-            closeLightbox();
-        }
-    });
-</script>
+    </section>
 
     <!-- Sekcja Rules -->
     <section id="rules">
@@ -295,6 +274,29 @@
     </footer>
 
     <script>
+        let slideIndex = 0;
+
+        function moveSlide(step) {
+            const slides = document.querySelectorAll('.slide');
+            slideIndex += step;
+
+            if (slideIndex >= slides.length) {
+                slideIndex = 0;
+            } else if (slideIndex < 0) {
+                slideIndex = slides.length - 1;
+            }
+
+            const slideWidth = slides[0].offsetWidth;
+            const slidesContainer = document.querySelector('.slides');
+            slidesContainer.style.transform = `translateX(-${slideIndex * slideWidth}px)`;
+        }
+
+        // Automatic slide show
+        setInterval(() => {
+            moveSlide(1);
+        }, 3000); // Slajd zmienia się co 3 sekundy
+
+        // Toggle active sections (used by navbar)
         function showSection(sectionId) {
             const sections = document.querySelectorAll('section');
             sections.forEach(section => section.classList.remove('active'));
@@ -303,3 +305,4 @@
     </script>
 </body>
 </html>
+
