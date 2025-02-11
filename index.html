@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            font-size: 20px; /* Powiększona czcionka */
+            font-size: 20px; 
             margin: 0;
             padding: 0;
             background-image: url('banner.png'); 
@@ -142,16 +142,17 @@
             position: relative;
             max-width: 100%;
             margin: 0 auto;
+            overflow: hidden;
         }
 
         .slides {
             display: flex;
-            overflow: hidden;
+            transition: transform 0.5s ease-in-out;
         }
 
         .slide {
             min-width: 100%;
-            transition: transform 0.5s ease-in-out;
+            box-sizing: border-box;
         }
 
         .slide img {
@@ -286,9 +287,8 @@
                 slideIndex = slides.length - 1;
             }
 
-            const slideWidth = slides[0].offsetWidth;
             const slidesContainer = document.querySelector('.slides');
-            slidesContainer.style.transform = `translateX(-${slideIndex * slideWidth}px)`;
+            slidesContainer.style.transform = `translateX(-${slideIndex * 100}%)`;
         }
 
         // Automatic slide show
@@ -305,4 +305,3 @@
     </script>
 </body>
 </html>
-
