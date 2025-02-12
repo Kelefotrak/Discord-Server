@@ -38,21 +38,26 @@
             font-family: Georgia, serif;
             font-size: 4vw;
             margin-top: 10px;
+            color: #f1c40f;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
         }
 
         h2 {
             font-family: Georgia, serif;
             font-size: 3.5vw;
             margin-top: 15px;
+            color: #e67e22;
         }
 
         p, ul {
             max-width: 80%;
             margin: 20px auto;
-            line-height: 1.5;
+            line-height: 1.8;
             background-color: rgba(0, 0, 0, 0.6);
-            padding: 10px;
+            padding: 15px;
             border-radius: 8px;
+            text-align: left;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
         }
 
         ul {
@@ -61,7 +66,8 @@
         }
 
         li {
-            margin: 8px 0;
+            margin: 12px 0;
+            font-size: 1.2em;
         }
 
         .button-container {
@@ -74,7 +80,7 @@
 
         .button {
             font-size: 1.2em;
-            padding: 8px 16px;
+            padding: 10px 20px;
             background-color: rgba(51, 51, 51, 0.8);
             color: #fff;
             border: 2px solid #555;
@@ -264,6 +270,12 @@
             background-color: rgba(0, 0, 0, 0.6);
             border-radius: 8px;
             text-align: left;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .rules-text p {
+            font-size: 1.2em;
+            font-weight: bold;
         }
 
     </style>
@@ -305,36 +317,35 @@
         </div>
         <div class="slider-container">
             <div class="slides">
-                <!-- 10 obrazków -->
                 <div class="slide">
-                    <img src="highlight1.jfif" alt="Highlight 1" loading="lazy">
+                    <img src="highlight1.jfif" alt="Highlight 1">
                 </div>
                 <div class="slide">
-                    <img src="highlight2.jfif" alt="Highlight 2" loading="lazy">
+                    <img src="highlight2.jfif" alt="Highlight 2">
                 </div>
                 <div class="slide">
-                    <img src="highlight3.jfif" alt="Highlight 3" loading="lazy">
+                    <img src="highlight3.jfif" alt="Highlight 3">
                 </div>
                 <div class="slide">
-                    <img src="highlight4.jfif" alt="Highlight 4" loading="lazy">
+                    <img src="highlight4.jfif" alt="Highlight 4">
                 </div>
                 <div class="slide">
-                    <img src="highlight5.jfif" alt="Highlight 5" loading="lazy">
+                    <img src="highlight5.jfif" alt="Highlight 5">
                 </div>
                 <div class="slide">
-                    <img src="highlight6.jfif" alt="Highlight 6" loading="lazy">
+                    <img src="highlight6.jfif" alt="Highlight 6">
                 </div>
                 <div class="slide">
-                    <img src="highlight7.jfif" alt="Highlight 7" loading="lazy">
+                    <img src="highlight7.jfif" alt="Highlight 7">
                 </div>
                 <div class="slide">
-                    <img src="highlight8.jfif" alt="Highlight 8" loading="lazy">
+                    <img src="highlight8.jfif" alt="Highlight 8">
                 </div>
                 <div class="slide">
-                    <img src="highlight9.jfif" alt="Highlight 9" loading="lazy">
+                    <img src="highlight9.jfif" alt="Highlight 9">
                 </div>
                 <div class="slide">
-                    <img src="highlight10.jfif" alt="Highlight 10" loading="lazy">
+                    <img src="highlight10.jfif" alt="Highlight 10">
                 </div>
             </div>
             <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
@@ -345,13 +356,14 @@
     <section id="rules">
         <h2>Rules</h2>
         <div class="rules-text">
-            <p>At Kelefotrak’s Basement, we value respect and fairness. We expect all our members to:</p>
-            <ul>
-                <li>Be respectful to one another</li>
-                <li>No spamming or trolling</li>
-                <li>Follow Discord's Terms of Service</li>
-                <li>Have fun and enjoy the community!</li>
-            </ul>
+            <p>Don't be an asshole.</p>
+            <p>Don't spam.</p>
+            <p>Try to keep it English only. (Polish and German are exceptions).</p>
+            <p>Follow Discord ToS and community guidelines.</p>
+            <p>This server isn't NSFW, we have 1 channel for NSFW purposes so use them.</p>
+            <p>Any positive comments about Simon Cowell or Griffith will result in a warning.</p>
+            <p>Be kind.</p>
+            <p>Any self-promotion not agreed with any @Owner will result in a warning and a mute.</p>
         </div>
     </section>
 
@@ -388,9 +400,19 @@
 
         function moveSlide(direction) {
             const slides = document.querySelectorAll('.slide');
+            slides[currentSlide].classList.remove('active');
             currentSlide = (currentSlide + direction + slides.length) % slides.length;
-            document.querySelector('.slides').style.transform = `translateX(-${currentSlide * 100}%)`;
+            slides[currentSlide].classList.add('active');
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            const activeSection = document.getElementById('home');
+            activeSection.classList.add('active');
+        });
     </script>
 </body>
 </html>
