@@ -21,40 +21,55 @@
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
+            animation: fadeIn 1.5s ease-out;  /* Animacja przy ładowaniu strony */
         }
 
-        body::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: -1;
+        /* Animacja fadeIn dla body */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Animacja dla nagłówków (np. h1, h2) */
+        h1, h2 {
+            opacity: 0;
+            animation: fadeUp 1s forwards;
         }
 
         h1 {
-            font-family: Georgia, serif;
-            font-size: 4vw;
-            margin-top: 10px;
+            animation-delay: 0.3s;  /* Opóźnienie animacji */
         }
 
         h2 {
-            font-family: Georgia, serif;
-            font-size: 3.5vw;
-            margin-top: 15px;
+            animation-delay: 0.6s;
         }
 
-        /* Dodanie subtelnego tła tylko wokół tekstu */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         p, ul {
             max-width: 80%;
             margin: 20px auto;
             line-height: 1.5;
-            background-color: rgba(0, 0, 0, 0.6);  /* Półprzezroczyste tło */
+            background-color: rgba(0, 0, 0, 0.6);
             padding: 15px;
-            border-radius: 10px;  /* Zaokrąglone rogi */
-            color: #fff;  /* Kolor tekstu na biały */
+            border-radius: 10px;
+            color: #fff;
+            opacity: 0;
+            animation: fadeUp 1s forwards;
+            animation-delay: 1s;
         }
 
         ul {
@@ -85,6 +100,21 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            opacity: 0;
+            animation: fadeInButton 1s forwards;
+            animation-delay: 1.5s;
+        }
+
+        /* Animacja dla przycisków */
+        @keyframes fadeInButton {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .button:hover {
@@ -101,6 +131,9 @@
             background-color: rgba(0, 0, 0, 0.7);
             padding: 20px 15px;
             border-top: 2px solid #444;
+            opacity: 0;
+            animation: fadeUp 1s forwards;
+            animation-delay: 2s;
         }
 
         .footer-text, .founders-text {
@@ -128,6 +161,21 @@
             gap: 15px;
             z-index: 1000;
             transition: top 0.3s;
+            opacity: 0;
+            animation: fadeInNavbar 1s forwards;
+            animation-delay: 1s;
+        }
+
+        /* Animacja dla navbar */
+        @keyframes fadeInNavbar {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .navbar a {
@@ -154,6 +202,16 @@
 
         section.active {
             display: block;
+            animation: fadeInSection 1s forwards;
+        }
+
+        @keyframes fadeInSection {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
         .icon {
@@ -167,6 +225,9 @@
             margin: 0 auto;
             overflow: hidden;
             border-radius: 10px;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+            animation-delay: 1s;
         }
 
         .slides {
@@ -360,6 +421,25 @@
             </div>
         </div>
     </section>
+
+ <!-- Centralized footer content -->
+<footer>
+    <div class="founders-text">
+        Founders: Kelefotrak, Grass (Victoria) and Adapt
+    </div>
+    <div class="footer-text">
+        © 2025 Kelefotrak's Basement. All rights reserved.
+    </div>
+    <div class="social-links">
+        <a href="https://discord.gg/xX3BAJcYCD" target="_blank">Discord</a> | 
+        <a href="https://youtube.com/@kelesbasementsupport?si=-KS7T2saOWKYMCf5" target="_blank">YouTube</a> | 
+        <a href="https://twitter.com/Kelepotrak" target="_blank">Twitter</a> |
+        <a href="https://steamcommunity.com/id/Kelefotrak/" target="_blank">Steam</a>
+    </div>
+    <div class="small-note">
+        <a href="https://www.flaticon.com/free-icons/home" target="_blank">Icons created by Freepik - Flaticon</a>
+    </div>
+</footer>
 
  <!-- Centralized footer content -->
 <footer>
