@@ -2,85 +2,187 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
     <title>Kelefotrak's Basement</title>
     <style>
-        /* Global Styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #121212;
-            color: #fff;
+            background-image: url('banner.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #ffffff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+            z-index: -1;
+        }
+
+        h1 {
+            font-family: Georgia, serif;
+            font-size: 4vw;
+            margin-top: 10px;
         }
 
         h2 {
-            font-size: 4vw;
-            color: #fff;
+            font-family: Georgia, serif;
+            font-size: 3.5vw;
+            margin-top: 15px;
         }
 
-        /* Navbar Styles */
+        p, ul {
+            max-width: 80%;
+            margin: 20px auto;
+            line-height: 1.5;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .button {
+            font-size: 1.2em;
+            padding: 8px 16px;
+            background-color: rgba(51, 51, 51, 0.8);
+            color: #fff;
+            border: 2px solid #555;
+            border-radius: 4px;
+            transition: 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .button:hover {
+            background-color: rgba(85, 85, 85, 0.8);
+            color: #fff;
+            transform: translateY(-3px); /* Subtle lifting effect */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Adds shadow */
+        }
+
+        footer {
+            margin-top: auto;
+            font-size: 1em;
+            color: #ccc;
+            background-color: rgba(0, 0, 0, 0.7); /* Darker background */
+            padding: 20px 15px;
+            border-top: 2px solid #444;
+        }
+
+        .footer-text, .founders-text {
+            margin-top: 5px;
+        }
+
+        .small-note {
+            position: absolute;
+            bottom: 5px;
+            right: 10px;
+            font-size: 0.7em;
+            color: #bbb;
+        }
+
         .navbar {
+            font-size: 1.5vw;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px;
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 15px;
-            text-align: center;
-            transition: top 0.3s ease;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            z-index: 1000;
+            transition: top 0.3s; /* Transition for hiding/showing navbar */
         }
 
         .navbar a {
             color: #fff;
             text-decoration: none;
-            padding: 12px;
-            font-size: 1.5em;
-            display: inline-block;
+            padding: 10px 15px;
+            transition: 0.3s ease;
         }
 
         .navbar a:hover {
-            color: #ffcc00;
+            background-color: rgba(85, 85, 85, 0.8);
+            border-radius: 5px;
         }
 
-        /* Sekcja Highlights */
-        #highlights {
+        .navbar a.active {
+            background-color: rgba(85, 85, 85, 0.8);
+            border-radius: 5px;
+        }
+
+        section {
             padding: 60px 15px;
-            background-color: rgba(0, 0, 0, 0.7);
-            text-align: center;
+            display: none;
         }
 
-        .highlights-text p {
-            font-size: 1.2em;
-            margin: 20px auto;
-            max-width: 80%;
-            text-align: left;
-            background-color: rgba(0, 0, 0, 0.6);
-            padding: 15px;
-            border-radius: 8px;
-            color: #fff;
+        section.active {
+            display: block;
+        }
+
+        .icon {
+            width: 1.2em;
+            height: 1.2em;
         }
 
         .slider-container {
             position: relative;
-            max-width: 100%;
+            max-width: 80%; /* Reduced width for better presentation */
+            margin: 0 auto;
             overflow: hidden;
-            margin-top: 20px;
+            border-radius: 10px; /* Rounded corners */
         }
 
         .slides {
             display: flex;
-            transition: transform 0.5s ease-in-out;
+            transition: transform 0.6s ease-in-out; /* Smoother transition */
         }
 
         .slide {
             min-width: 100%;
             box-sizing: border-box;
+            display: flex;
+            justify-content: center;
         }
 
         .slide img {
             width: 100%;
-            border-radius: 10px;
+            height: auto;
+            max-width: 100%;
         }
 
         .prev, .next {
@@ -88,10 +190,10 @@
             top: 50%;
             transform: translateY(-50%);
             background-color: rgba(0, 0, 0, 0.5);
-            color: #fff;
-            font-size: 2em;
+            color: white;
             border: none;
-            padding: 10px;
+            padding: 8px;
+            font-size: 1.5em;
             cursor: pointer;
         }
 
@@ -103,98 +205,6 @@
             right: 10px;
         }
 
-        .prev:hover, .next:hover {
-            background-color: rgba(0, 0, 0, 0.7);
-        }
-
-        /* Sekcja Announcements */
-        #announcements {
-            padding: 60px 15px;
-            background-color: rgba(0, 0, 0, 0.7);
-            text-align: center;
-        }
-
-        .announcements-text p {
-            font-size: 1.2em;
-            margin: 20px auto;
-            max-width: 80%;
-            text-align: left;
-            background-color: rgba(0, 0, 0, 0.6);
-            padding: 15px;
-            border-radius: 8px;
-            color: #fff;
-        }
-
-        .button {
-            font-size: 1.2em;
-            padding: 10px 20px;
-            background-color: rgba(51, 51, 51, 0.8);
-            color: #fff;
-            border: 2px solid #555;
-            border-radius: 5px;
-            transition: 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .button:hover {
-            background-color: rgba(85, 85, 85, 0.8);
-            color: #fff;
-            transform: translateY(-3px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .button img {
-            width: 20px;
-            height: 20px;
-            margin-right: 8px;
-        }
-
-        /* Footer Styles */
-        footer {
-            background-color: #1a1a1a;
-            color: #fff;
-            text-align: center;
-            padding: 20px 15px;
-            margin-top: 40px;
-            font-size: 1em;
-            position: relative;
-        }
-
-        .founders-text {
-            margin-bottom: 15px;
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-
-        .footer-text {
-            margin-bottom: 20px;
-            font-size: 1em;
-        }
-
-        .social-links {
-            margin-bottom: 10px;
-        }
-
-        .social-links a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-            font-size: 1.2em;
-        }
-
-        .social-links a:hover {
-            color: #ffcc00;
-        }
-
-        .small-note {
-            font-size: 0.9em;
-            color: rgba(255, 255, 255, 0.7);
-            font-style: italic;
-        }
-
         /* Mobile view */
         @media (max-width: 768px) {
             .button {
@@ -202,31 +212,92 @@
                 box-sizing: border-box;
             }
 
-            .highlights-text p, .announcements-text p {
+            p {
+                padding: 0 10px;
+            }
+
+            h1 {
+                font-size: 6vw; /* Smaller font size */
+            }
+
+            h2 {
+                font-size: 5vw;
+            }
+
+            .slider-container {
                 max-width: 90%;
             }
-
-            footer {
-                padding: 20px 10px;
-            }
-
-            .footer-text, .founders-text {
-                font-size: 1em;
-            }
-
-            .social-links a {
-                font-size: 1em;
-            }
         }
+
+        footer .social-links {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #bbb;
+        }
+
+        footer .social-links a {
+            color: #bbb;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer .social-links a:hover {
+            color: #fff;
+        }
+
+        /* Smooth scroll text in sections */
+        .home-text, .rules-text, .highlights-text, .announcements-text {
+            max-width: 80%;
+            margin: 20px auto;
+            text-align: left;
+            line-height: 1.8;
+            overflow-y: auto;
+            max-height: 60vh; /* limit height for scrolling */
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 8px;
+            text-align: left;
+        }
+
     </style>
 </head>
 <body>
+    <!-- Pasek nawigacyjny -->
+    <nav class="navbar">
+        <a href="#home" onclick="showSection('home')">Home</a>
+        <a href="#highlights" onclick="showSection('highlights')">Highlights</a>
+        <a href="#rules" onclick="showSection('rules')">Rules</a>
+        <a href="#announcements" onclick="showSection('announcements')">Announcements</a>
+    </nav>
+
+    <!-- Sekcja główna -->
+    <section id="home" class="active">
+        <h1>Kelefotrak's Basement</h1>
+        <div class="home-text">
+            <p>This is the website for Kelefotrak’s Basement. Kelefotrak’s Basement is a small community we started on Discord. Discord is a popular platform for communications, be it voice, video, or text. We at Kelefotrak’s Basement take pride in our ability to free speech. We embrace diversity and fairness and welcome everyone without bias. We are very open to new people, and we are sure if you drop in, you’ll love it and will most likely stay.</p>
+        </div>
+        
+        <div class="button-container">
+            <a href="https://discord.gg/xX3BAJcYCD" target="_blank" class="button">
+                <img src="Discord.png" alt="Discord" class="icon"> Discord
+            </a>
+            <a href="https://youtube.com/@kelesbasementsupport?si=-KS7T2saOWKYMCf5" target="_blank" class="button">
+                <img src="yt.png" alt="YouTube" class="icon"> YouTube Channel
+            </a>
+            <a href="https://x.com/Kelepotrak" target="_blank" class="button">
+                <img src="X.png" alt="Twitter" class="icon"> Twitter
+            </a>
+            <a href="https://steamcommunity.com/id/Kelefotrak/" target="_blank" class="button">
+                <img src="steam.jpg" alt="Steam" class="icon"> Steam
+            </a>
+        </div>
+    </section>
 
     <!-- Sekcja Highlights -->
     <section id="highlights">
         <h2>Highlights</h2>
         <div class="highlights-text">
-            <p>This is the website for Kelefotrak’s Basement. Kelefotrak’s Basement is a small community we started on Discord. Discord is a popular platform for communications, be it voice, video, or text. We at Kelefotrak’s Basement take pride in our ability to free speech. We embrace diversity and fairness and welcome everyone without bias. We are very open to new people, and we are sure if you drop in, you’ll love it and will most likely stay.</p>
+            <p>Here you can see the highlights of the community. This section showcases some of the best moments in Kelefotrak's Basement!</p>
         </div>
         <div class="slider-container">
             <div class="slides">
@@ -266,22 +337,37 @@
             <button class="next" onclick="moveSlide(1)">&#10095;</button>
         </div>
     </section>
-
-    <!-- Sekcja Announcements -->
-    <section id="announcements">
-        <h2>Announcements</h2>
-        <div class="announcements-text">
-            <p>Second video is now on our YT channel. Check it out below!</p>
-            <a href="https://www.youtube.com/shorts/fDE6C6XVJ0A" target="_blank" class="button">
-                Watch Video
-            </a>
-        </div>
-    </section>
+       
+    <section id="rules">
+    <h2>Rules</h2>
+    <div class="rules-text">
+        <ul>
+            <li>🚫 Don't be an asshole.</li>
+            <li>📵 Don't spam.</li>
+            <li>🗣️ Try to keep it English only. (Polish and German are exceptions).</li>
+            <li>📜 Follow Discord ToS and community guidelines.</li>
+            <li>❌ This server isn't NSFW, we have 2 channels for NSFW purposes so use them.</li>
+            <li>⚠️ Any positive comments about Simon Cowell or Griffith will result in a warning.</li>
+            <li>💖 Be kind.</li>
+            <li>🔇 Any self-promotion not agreed with any @Owner will result in a warning and a mute.</li>
+        </ul>
+    </div>
+</section>
+   <!-- Sekcja Announcements -->
+<section id="announcements">
+    <h2>Announcements</h2>
+    <div class="announcements-text">
+        <p>Second video is now on our YT channel. Check it out below!</p>
+        <a href="https://www.youtube.com/shorts/fDE6C6XVJ0A" target="_blank" class="button">
+            Watch Video
+        </a>
+    </div>
+</section>
 
     <!-- Centralized footer content -->
     <footer>
         <div class="founders-text">
-            Founders: Kelefotrak, Grass (Victoria) and Adapt
+            Founders: Kelefotrak,Grass (Victoria) and Adapt
         </div>
         <div class="footer-text">
             © 2025 Kelefotrak's Basement. All rights reserved.
@@ -289,7 +375,7 @@
         <div class="social-links">
             <a href="https://discord.gg/xX3BAJcYCD" target="_blank">Discord</a> | 
             <a href="https://youtube.com/@kelesbasementsupport?si=-KS7T2saOWKYMCf5" target="_blank">YouTube</a> | 
-            <a href="https://twitter.com/Kelepotrak" target="_blank">Twitter</a> |
+            <a href="https://twitter.com/Kelepotrak" target="_blank">Twitter</a>
             <a href="https://steamcommunity.com/id/Kelefotrak/" target="_blank">Steam</a>
         </div>
         <div class="small-note">Grass is a Loona SIMP</div>
@@ -302,7 +388,19 @@
             const slides = document.querySelectorAll('.slide');
             slideIndex = (slideIndex + step + slides.length) % slides.length;
             const slidesContainer = document.querySelector('.slides');
-            slidesContainer.style.transform = `translateX(-${slideIndex * 100}%)`;
+            slidesContainer.style.transform = translateX(-${slideIndex * 100}%);
+        }
+
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => section.classList.remove('active'));
+
+            const links = document.querySelectorAll('.navbar a');
+            links.forEach(link => link.classList.remove('active'));
+
+            document.getElementById(sectionId).classList.add('active');
+            const activeLink = document.querySelector(.navbar a[href="#${sectionId}"]);
+            activeLink.classList.add('active');
         }
 
         let lastScrollTop = 0;
@@ -319,4 +417,3 @@
         });
     </script>
 </body>
-</html>
