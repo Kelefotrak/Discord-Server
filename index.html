@@ -391,7 +391,7 @@
         </div>
     </section>
 
-    <footer>
+ <footer>
         <div class="footer-text">
             <p>© 2025 Kelefotrak’s Basement. All rights reserved.</p>
         </div>
@@ -408,6 +408,17 @@
             <a href="https://hazbinhotel.fandom.com/wiki/Loona" target="_blank">grass is a Loona simp</a>
         </div>
     </footer>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            const activeSection = document.getElementById(sectionId);
+            activeSection.classList.add('active');
+        }
+    </script>
 
     <script>
         let currentSlide = 0;
