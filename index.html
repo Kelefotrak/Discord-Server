@@ -13,7 +13,7 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background-attachment: scroll; /* Paralaksa */
+            background-attachment: fixed;
             color: #ffffff;
             text-align: center;
             display: flex;
@@ -35,31 +35,24 @@
         }
 
         h1 {
-            font-family: 'Arial', sans-serif;
-            font-size: 5vw;
-            margin-top: 20px;
-            color: #f1c40f;
-            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8);
-            text-transform: uppercase;
+            font-family: Georgia, serif;
+            font-size: 4vw;
+            margin-top: 10px;
         }
 
         h2 {
-            font-family: 'Arial', sans-serif;
-            font-size: 4vw;
+            font-family: Georgia, serif;
+            font-size: 3.5vw;
             margin-top: 15px;
-            color: #e67e22;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
         }
 
         p, ul {
             max-width: 80%;
             margin: 20px auto;
-            line-height: 1.8;
+            line-height: 1.5;
             background-color: rgba(0, 0, 0, 0.6);
-            padding: 15px;
+            padding: 10px;
             border-radius: 8px;
-            text-align: left;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
         }
 
         ul {
@@ -68,8 +61,7 @@
         }
 
         li {
-            margin: 12px 0;
-            font-size: 1.2em;
+            margin: 8px 0;
         }
 
         .button-container {
@@ -82,12 +74,12 @@
 
         .button {
             font-size: 1.2em;
-            padding: 10px 20px;
+            padding: 8px 16px;
             background-color: rgba(51, 51, 51, 0.8);
             color: #fff;
             border: 2px solid #555;
             border-radius: 4px;
-            transition: background-color 0.3s, transform 0.3s ease;
+            transition: 0.3s ease;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -95,8 +87,9 @@
 
         .button:hover {
             background-color: rgba(85, 85, 85, 0.8);
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+            color: #fff;
+            transform: translateY(-3px); /* Subtle lifting effect */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Adds shadow */
         }
 
         footer {
@@ -132,14 +125,14 @@
             justify-content: center;
             gap: 15px;
             z-index: 1000;
-            transition: top 0.3s;
+            transition: top 0.3s; /* Transition for hiding/showing navbar */
         }
 
         .navbar a {
             color: #fff;
             text-decoration: none;
             padding: 10px 15px;
-            transition: background-color 0.3s ease;
+            transition: 0.3s ease;
         }
 
         .navbar a:hover {
@@ -168,20 +161,15 @@
 
         .slider-container {
             position: relative;
-            max-width: 80%;
+            max-width: 80%; /* Reduced width for better presentation */
             margin: 0 auto;
             overflow: hidden;
-            border-radius: 10px;
+            border-radius: 10px; /* Rounded corners */
         }
 
         .slides {
             display: flex;
-            transition: opacity 0.6s ease-in-out;
-            opacity: 0;
-        }
-
-        .slide.active {
-            opacity: 1;
+            transition: transform 0.6s ease-in-out; /* Smoother transition */
         }
 
         .slide {
@@ -217,6 +205,7 @@
             right: 10px;
         }
 
+        /* Mobile view */
         @media (max-width: 768px) {
             .button {
                 width: 90%;
@@ -228,7 +217,7 @@
             }
 
             h1 {
-                font-size: 6vw;
+                font-size: 6vw; /* Smaller font size */
             }
 
             h2 {
@@ -237,11 +226,6 @@
 
             .slider-container {
                 max-width: 90%;
-            }
-
-            .navbar {
-                flex-direction: column;
-                gap: 10px;
             }
         }
 
@@ -261,43 +245,24 @@
             color: #fff;
         }
 
+        /* Smooth scroll text in sections */
         .home-text, .rules-text, .highlights-text, .announcements-text {
             max-width: 80%;
             margin: 20px auto;
             text-align: left;
             line-height: 1.8;
             overflow-y: auto;
-            max-height: 60vh;
+            max-height: 60vh; /* limit height for scrolling */
             padding: 15px;
             background-color: rgba(0, 0, 0, 0.6);
             border-radius: 8px;
             text-align: left;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-        }
-
-        .rules-text p {
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-
-        .founders-text {
-            font-size: 1.2em;
-            color: #ddd;
-            margin-top: 20px;
-        }
-
-        .small-note a {
-            color: #bbb;
-            text-decoration: none;
-        }
-
-        .small-note a:hover {
-            color: #fff;
         }
 
     </style>
 </head>
 <body>
+    <!-- Pasek nawigacyjny -->
     <nav class="navbar">
         <a href="#home" onclick="showSection('home')">Home</a>
         <a href="#highlights" onclick="showSection('highlights')">Highlights</a>
@@ -305,6 +270,7 @@
         <a href="#announcements" onclick="showSection('announcements')">Announcements</a>
     </nav>
 
+    <!-- Sekcja główna -->
     <section id="home" class="active">
         <h1>Kelefotrak's Basement</h1>
         <div class="home-text">
@@ -312,21 +278,22 @@
         </div>
         
         <div class="button-container">
-            <a href="https://discord.gg/xX3BAJcYCD" target="_blank" class="button" aria-label="Przejdź do Discorda">
+            <a href="https://discord.gg/xX3BAJcYCD" target="_blank" class="button">
                 <img src="Discord.png" alt="Discord" class="icon"> Discord
             </a>
-            <a href="https://youtube.com/@kelesbasementsupport?si=-KS7T2saOWKYMCf5" target="_blank" class="button" aria-label="Przejdź do YouTube">
+            <a href="https://youtube.com/@kelesbasementsupport?si=-KS7T2saOWKYMCf5" target="_blank" class="button">
                 <img src="yt.png" alt="YouTube" class="icon"> YouTube Channel
             </a>
-            <a href="https://x.com/Kelepotrak" target="_blank" class="button" aria-label="Przejdź do Twittera">
+            <a href="https://x.com/Kelepotrak" target="_blank" class="button">
                 <img src="X.png" alt="Twitter" class="icon"> Twitter
             </a>
-            <a href="https://steamcommunity.com/id/Kelefotrak/" target="_blank" class="button" aria-label="Przejdź do Steam">
+            <a href="https://steamcommunity.com/id/Kelefotrak/" target="_blank" class="button">
                 <img src="steam.jpg" alt="Steam" class="icon"> Steam
             </a>
         </div>
     </section>
 
+    <!-- Sekcja Highlights -->
     <section id="highlights">
         <h2>Highlights</h2>
         <div class="highlights-text">
@@ -334,6 +301,7 @@
         </div>
         <div class="slider-container">
             <div class="slides">
+                <!-- 10 obrazków -->
                 <div class="slide">
                     <img src="highlight1.jfif" alt="Highlight 1">
                 </div>
@@ -369,83 +337,83 @@
             <button class="next" onclick="moveSlide(1)">&#10095;</button>
         </div>
     </section>
-
+       
     <section id="rules">
-        <h2>Rules</h2>
-        <div class="rules-text">
-            <p>Don't be an asshole.</p>
-            <p>Don't spam.</p>
-            <p>Try to keep it English only. (Polish and German are exceptions).</p>
-            <p>Follow Discord ToS and community guidelines.</p>
-            <p>This server isn't NSFW, we have 1 channel for NSFW purposes so use them.</p>
-            <p>Any positive comments about Simon Cowell or Griffith will result in a warning.</p>
-            <p>Be kind.</p>
-            <p>Any self-promotion not agreed with any @Owner will result in a warning and a mute.</p>
-        </div>
-    </section>
+    <h2>Rules</h2>
+    <div class="rules-text">
+        <ul>
+            <li>🚫 Don't be an asshole.</li>
+            <li>📵 Don't spam.</li>
+            <li>🗣️ Try to keep it English only. (Polish and German are exceptions).</li>
+            <li>📜 Follow Discord ToS and community guidelines.</li>
+            <li>❌ This server isn't NSFW, we have 2 channels for NSFW purposes so use them.</li>
+            <li>⚠️ Any positive comments about Simon Cowell or Griffith will result in a warning.</li>
+            <li>💖 Be kind.</li>
+            <li>🔇 Any self-promotion not agreed with any @Owner will result in a warning and a mute.</li>
+        </ul>
+    </div>
+</section>
+   <!-- Sekcja Announcements -->
+<section id="announcements">
+    <h2>Announcements</h2>
+    <div class="announcements-text">
+        <p>Second video is now on our YT channel. Check it out below!</p>
+        <a href="https://www.youtube.com/shorts/fDE6C6XVJ0A" target="_blank" class="button">
+            Watch Video
+        </a>
+    </div>
+</section>
 
-    <section id="announcements">
-        <h2>Announcements</h2>
-        <div class="announcements-text">
-            <p>Stay updated with all the latest happenings in Kelefotrak’s Basement!</p>
+    <!-- Centralized footer content -->
+    <footer>
+        <div class="founders-text">
+            Founders: Kelefotrak,Grass (Victoria) and Adapt
         </div>
-    </section>
-
- <footer>
         <div class="footer-text">
-            <p>© 2025 Kelefotrak’s Basement. All rights reserved.</p>
+            © 2025 Kelefotrak's Basement. All rights reserved.
         </div>
         <div class="social-links">
-            <a href="https://discord.gg/xX3BAJcYCD">Discord</a>
-            <a href="https://youtube.com/@kelesbasementsupport">YouTube</a>
-            <a href="https://x.com/Kelepotrak">Twitter</a>
-            <a href="https://steamcommunity.com/id/Kelefotrak/">Steam</a>
+            <a href="https://discord.gg/xX3BAJcYCD" target="_blank">Discord</a> | 
+            <a href="https://youtube.com/@kelesbasementsupport?si=-KS7T2saOWKYMCf5" target="_blank">YouTube</a> | 
+            <a href="https://twitter.com/Kelepotrak" target="_blank">Twitter</a>
+            <a href="https://steamcommunity.com/id/Kelefotrak/" target="_blank">Steam</a>
         </div>
-        <div class="founders-text">
-            <p>Founders: Kelefotrak, Grass (Victoria), and Adapt</p>
-        </div>
-        <div class="small-note">
-            <a href="https://hazbinhotel.fandom.com/wiki/Loona" target="_blank">grass is a Loona simp</a>
-        </div>
+        <div class="small-note">Grass is a Loona SIMP</div>
     </footer>
 
     <script>
-        function showSection(sectionId) {
-            const sections = document.querySelectorAll('section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-            const activeSection = document.getElementById(sectionId);
-            activeSection.classList.add('active');
-        }
-    </script>
+        let slideIndex = 0;
 
-    <script>
-        let currentSlide = 0;
-
-        function showSection(sectionId) {
-            const sections = document.querySelectorAll('section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-            const activeSection = document.getElementById(sectionId);
-            activeSection.classList.add('active');
-        }
-
-        function moveSlide(direction) {
+        function moveSlide(step) {
             const slides = document.querySelectorAll('.slide');
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + direction + slides.length) % slides.length;
-            slides[currentSlide].classList.add('active');
+            slideIndex = (slideIndex + step + slides.length) % slides.length;
+            const slidesContainer = document.querySelector('.slides');
+            slidesContainer.style.transform = translateX(-${slideIndex * 100}%);
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
+        function showSection(sectionId) {
             const sections = document.querySelectorAll('section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-            const activeSection = document.getElementById('home');
-            activeSection.classList.add('active');
+            sections.forEach(section => section.classList.remove('active'));
+
+            const links = document.querySelectorAll('.navbar a');
+            links.forEach(link => link.classList.remove('active'));
+
+            document.getElementById(sectionId).classList.add('active');
+            const activeLink = document.querySelector(.navbar a[href="#${sectionId}"]);
+            activeLink.classList.add('active');
+        }
+
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('.navbar');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop) {
+                navbar.style.top = "-60px"; // Hide navbar when scrolling down
+            } else {
+                navbar.style.top = "0"; // Show navbar when scrolling up
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Prevent negative scroll
         });
     </script>
 </body>
