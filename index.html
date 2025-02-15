@@ -500,32 +500,15 @@
                 navbar.style.top = "0"; // Show navbar when scrolling up
             }
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Prevent negative scroll
- let audio = document.querySelector('.background-audio');
-        let musicButton = document.querySelector('.music-toggle');
- <audio class="background-audio" loop autoplay>
+            
+<audio class="background-audio" loop autoplay>
         <source src="Lazy Afternoon Dreams 1.mp3" type="audio/mp3">
     </audio>
 
-    <div class="music-toggle" onclick="toggleMusic()">Pause Music</div>
-
     <script>
-        let audio = document.querySelector('.background-audio');
-        let musicButton = document.querySelector('.music-toggle');
-
         // Automatically play the music when the page loads
+        let audio = document.querySelector('.background-audio');
         audio.play();
-
-        // Update button text
-        musicButton.textContent = 'Pause Music';
-
-        function toggleMusic() {
-            if (audio.paused) {
-                audio.play();
-                musicButton.textContent = 'Pause Music';
-            } else {
-                audio.pause();
-                musicButton.textContent = 'Play Music';
-            }
         }
 ic';
         });
