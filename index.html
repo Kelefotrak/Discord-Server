@@ -401,15 +401,11 @@
     </div>
 </footer>
   
-    <audio class="background-audio" loop autoplay>
-        <source src="Music.mp3" type="audio/mp3">
-    </audio>
-
     <script>
         // Automatically play the music when the page loads
-        let audio = document.querySelector('.background-audio');
-        audio.play();
-
+      <audio class="background-audio" loop autoplay muted>
+    <source src="Music.mp3" type="audio/mp3">
+</audio>
         // Navigation and section switching
         function showSection(sectionId) {
             const sections = document.querySelectorAll('section');
