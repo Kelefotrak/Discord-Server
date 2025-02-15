@@ -496,6 +496,16 @@
                 navbar.style.top = "0"; // Show navbar when scrolling up
             }
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Prevent negative scroll
+ let audio = document.querySelector('.background-audio');
+        let musicButton = document.querySelector('.music-toggle');
+
+        function toggleMusic() {
+            if (audio.paused) {
+                audio.play();
+                musicButton.textContent = 'Pause Music';
+            } else {
+                audio.pause();
+                musicButton.textContent = 'Play Music';
         });
     </script>
 </body>
