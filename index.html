@@ -318,10 +318,15 @@
             background-color: transparent;
             border-radius: 0;
             text-align: left;
-/* Hide the audio player */
+  }
+
+        /* Hide the audio player */
         .background-audio {
             display: none;
-  .music-toggle {
+        }
+
+        /* Music toggle button */
+        .music-toggle {
             position: fixed;
             bottom: 20px;
             left: 20px;
@@ -331,7 +336,6 @@
             border-radius: 30px;
             cursor: pointer;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-        }
         }
     </style>
 </head>
@@ -435,14 +439,16 @@
             </div>
         </div>
     </section>
-  <!-- Background Music -->
-    <audio class="background-audio" autoplay loop>
-        <source src="Lazy Afternoon Dreams 1.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-  <!-- Music Toggle Button -->
-    <button class="music-toggle" onclick="toggleMusic()">Pause Music</button>
+    
+   <!-- Music Toggle Button -->
+    <button class="music-toggle" onclick="toggleMusic()">Play Music</button>
 
+    <!-- Background Music -->
+    <audio class="background-audio" loop>
+        <source src="Lazy Afternoon Dreams 1.mp3" type="audio/mp3">
+    </audio>
+
+    <footer>
 
  <!-- Centralized footer content -->
 <footer>
