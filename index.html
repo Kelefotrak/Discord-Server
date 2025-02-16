@@ -127,17 +127,19 @@
     }
     /* Przyciski pod tekstem na stronie głównej */
     .button-container a {
-      position: relative;
-      display: inline-block;
-      padding: 8px 12px;  /* zmniejszony padding */
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 12px;
       margin: 5px;
       background-color: rgba(85, 85, 85, 0.8);
       border-radius: 8px;
       color: white;
       text-decoration: none;
-      font-size: 0.9em;  /* zmniejszony rozmiar czcionki */
+      font-size: 0.9em;
       overflow: hidden;
       transition: background-color 0.3s ease, transform 0.3s ease;
+      position: relative;
     }
     .button-container a:before {
       content: '';
@@ -162,6 +164,11 @@
     .button-container a:hover {
       background-color: rgba(0, 0, 0, 0.8);
       transform: scale(1.05);
+    }
+    .button-container a .icon {
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
     }
     /* Slider */
     .slider-container {
