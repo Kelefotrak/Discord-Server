@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+\<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -125,17 +125,17 @@
       from { opacity: 0; }
       to { opacity: 1; }
     }
-    /* Przycisk i slider */
+    /* Przyciski pod tekstem na stronie głównej */
     .button-container a {
       position: relative;
       display: inline-block;
-      padding: 12px 20px;
+      padding: 8px 12px;  /* zmniejszony padding */
       margin: 5px;
       background-color: rgba(85, 85, 85, 0.8);
       border-radius: 8px;
       color: white;
       text-decoration: none;
-      font-size: 1em;
+      font-size: 0.9em;  /* zmniejszony rozmiar czcionki */
       overflow: hidden;
       transition: background-color 0.3s ease, transform 0.3s ease;
     }
@@ -166,7 +166,7 @@
     /* Slider */
     .slider-container {
       position: relative;
-      max-width: 80%;
+      max-width: 60%; /* zmniejszona szerokość slidera */
       margin: 0 auto;
       overflow: hidden;
       border-radius: 10px;
@@ -413,7 +413,7 @@
       if (prevScrollPos > currentScrollPos) {
         navbar.style.top = "0";
       } else {
-        navbar.style.top = "-60px"; // wartość dostosuj według potrzeb
+        navbar.style.top = "-60px"; // dostosuj według potrzeb
       }
       prevScrollPos = currentScrollPos;
     });
