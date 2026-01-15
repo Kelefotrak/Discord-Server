@@ -311,51 +311,46 @@
     </div>
   </footer>
 
-    </script>
-     // Przełączanie sekcji
-    function showSection(sectionId) {
-      const sections = document.querySelectorAll('section');
-      sections.forEach(section => section.classList.remove('active'));
-      document.getElementById(sectionId).classList.add('active');
+<script>
+  // Przełączanie sekcji
+  function showSection(sectionId) {
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => section.classList.remove('active'));
+    document.getElementById(sectionId).classList.add('active');
 
-      // Aktualizacja aktywnego linku w navbarze
-      const navLinks = document.querySelectorAll('.navbar a');
-      navLinks.forEach(link => link.classList.remove('active'));
-      document.querySelector('.navbar a[href="#' + sectionId + '"]').classList.add('active');
+    // Aktualizacja aktywnego linku w navbarze
+    const navLinks = document.querySelectorAll('.navbar a');
+    navLinks.forEach(link => link.classList.remove('active'));
 
-      // Uruchomienie muzyki po interakcji
-      playMusic();
-    }
+    const activeLink = document.querySelector('.navbar a[href="#' + sectionId + '"]');
+    if (activeLink) activeLink.classList.add('active');
+  }
 
-    // Slider
-    let currentSlide = 0;
-    const slides = document.querySelector('.slides');
-    const totalSlides = document.querySelectorAll('.slide').length;
+  // Slider (safe guards added)
+  let currentSlide = 0;
+  const slides = document.querySelector('.slides');
+  const totalSlides = document.querySelectorAll('.slide').length;
 
-    function moveSlide(direction) {
-      currentSlide += direction;
-      if (currentSlide < 0) {
-        currentSlide = totalSlides - 1;
-      }
-      if (currentSlide >= totalSlides) {
-        currentSlide = 0;
-      }
-      const offset = -currentSlide * 100;
-      slides.style.transform = "translateX(" + offset + "%)";
-    }
+  function moveSlide(direction) {
+    if (!slides || totalSlides === 0) return;
 
-    // Navbar chowający się przy scrollowaniu
-    let prevScrollPos = window.pageYOffset;
-    window.addEventListener('scroll', function() {
-      const currentScrollPos = window.pageYOffset;
-      const navbar = document.querySelector('.navbar');
-      if (prevScrollPos > currentScrollPos) {
-        navbar.style.top = "0";
-      } else {
-        navbar.style.top = "-60px"; // dostosuj według potrzeb
-      }
-      prevScrollPos = currentScrollPos;
-    });
-  </script>
-</body>
+    currentSlide += direction;
+    if (currentSlide < 0) currentSlide = totalSlides - 1;
+    if (currentSlide >= totalSlides) currentSlide = 0;
+
+    slides.style.transform = `translateX(${-currentSlide * 100}%)`;
+  }
+
+  // Navbar hide on scroll
+  let prevScrollPos = window.pageYOffset;
+  window.addEventListener('scroll', () => {
+    const currentScrollPos = window.pageYOffset;
+    const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+
+    navbar.style.top = prevScrollPos > currentScrollPos ? "0" : "-60px";
+    prevScrollPos = currentScrollPos;
+  });
+</script>
+</body> 
 </html>
